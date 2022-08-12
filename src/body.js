@@ -1,4 +1,5 @@
-
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 /**
  * This contains the main body
  * of the blog. It's broken down
@@ -21,6 +22,61 @@
  */
 function Body(props) {
 
+    return (
+        <Grid
+            container
+            direction='row'
+            justifyContnt='center'
+            alignItems='center'
+        >
+            <Grid item xs={8}>
+                <Box
+                    sx={{
+                        width: 10,
+                        height: 10,
+                        backgroundColor: 'red'
+                    }}
+                />
+                <Box
+                    sx={{
+                        width: 10,
+                        height: 10,
+                        backgroundColor: 'green'
+                    }}
+                />
+                <Box
+                    sx={{
+                        width: 10,
+                        height: 10,
+                        backgroundColor: 'blue'
+                    }}
+                />
+            </Grid>
+            <Grid item xs={4}>
+                <Box
+                    sx={{
+                        width: 10,
+                        height: 10,
+                        backgroundColor: 'red'
+                    }}
+                />
+                <Box
+                    sx={{
+                        width: 10,
+                        height: 10,
+                        backgroundColor: 'green'
+                    }}
+                />
+                <Box
+                    sx={{
+                        width: 10,
+                        height: 10,
+                        backgroundColor: 'blue'
+                    }}
+                />
+            </Grid>
+        </Grid>
+    );
 }
 
 export default Body;

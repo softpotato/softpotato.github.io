@@ -2,7 +2,7 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Header from './header';
-import Highlight from './highlightV1';
+import Body from './body';
 
 const title = "Ben's Blog";
 
@@ -33,6 +33,7 @@ function Blog() {
       <Container maxWidth="lg">
         <Header title={title} sections={sections} contact={contact} />
       </Container>
+      <Body />
     </React.Fragment>
   );
 }
