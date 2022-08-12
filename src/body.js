@@ -1,5 +1,10 @@
+import { useEffect } from 'react';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+import BodyFeed from './body_feed';
+import BodyBanner from './body_banner';
+
+import { RetrieveMarkdownDirectory } from './utils';
+
 /**
  * This contains the main body
  * of the blog. It's broken down
@@ -22,58 +27,23 @@ import Box from '@mui/material/Box';
  */
 function Body(props) {
 
+    useEffect(() => {
+        console.log(RetrieveMarkdownDirectory());
+    }, [])
+
     return (
         <Grid
             container
             direction='row'
             justifyContnt='center'
             alignItems='center'
+            sx={{ pl: 10 }}
         >
             <Grid item xs={8}>
-                <Box
-                    sx={{
-                        width: 10,
-                        height: 10,
-                        backgroundColor: 'red'
-                    }}
-                />
-                <Box
-                    sx={{
-                        width: 10,
-                        height: 10,
-                        backgroundColor: 'green'
-                    }}
-                />
-                <Box
-                    sx={{
-                        width: 10,
-                        height: 10,
-                        backgroundColor: 'blue'
-                    }}
-                />
+                <BodyFeed />
             </Grid>
             <Grid item xs={4}>
-                <Box
-                    sx={{
-                        width: 10,
-                        height: 10,
-                        backgroundColor: 'red'
-                    }}
-                />
-                <Box
-                    sx={{
-                        width: 10,
-                        height: 10,
-                        backgroundColor: 'green'
-                    }}
-                />
-                <Box
-                    sx={{
-                        width: 10,
-                        height: 10,
-                        backgroundColor: 'blue'
-                    }}
-                />
+                <BodyBanner />
             </Grid>
         </Grid>
     );

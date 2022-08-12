@@ -27,6 +27,7 @@ const images = [
 ];
 
 function Blog() {
+
   return (
     <React.Fragment>
       <CssBaseline />
