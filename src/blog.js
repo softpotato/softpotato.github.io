@@ -18,15 +18,21 @@ const contact = [
   { type: "Email", value: "lin.benjamin1@gmail.com"}
 ];
 
-const images = [
-  {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  }
-];
+const markdownList = [
+  { path: './markdown/doc1.md'}
+]
 
 function Blog() {
+
+  React.useEffect(() => {
+    for (let i = 0; i < markdownList.length; i++) {
+      import(markdownList[i].path)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
+  }, [])
 
   return (
     <React.Fragment>

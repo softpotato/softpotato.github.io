@@ -11,8 +11,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "fast-glob": "^3.2.11",
     "gh-pages": "^4.0.0",
-    "glob": "^8.0.3",
+    "globby": "^13.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
@@ -50,5 +51,11 @@
     "fs": false,
     "path": false,
     "os": false
+  },
+  "externals": {
+    "node:fs": "commonjs fs",
+    "node:path": "commonjs path",
+    "node:stream": "commonjs stream",
+    "node:util": "commonjs util"
   }
 }

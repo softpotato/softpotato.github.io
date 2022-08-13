@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import BodyFeed from './body_feed';
 import BodyBanner from './body_banner';
 
-import { RetrieveMarkdownDirectory } from './utils';
+import {ReadFile} from './utils';
 
 /**
  * This contains the main body
@@ -26,16 +25,11 @@ import { RetrieveMarkdownDirectory } from './utils';
  * @param {*} props 
  */
 function Body(props) {
-
-    useEffect(() => {
-        console.log(RetrieveMarkdownDirectory());
-    }, [])
-
     return (
         <Grid
             container
             direction='row'
-            justifyContnt='center'
+            justifyContent='center'
             alignItems='center'
             sx={{ pl: 10 }}
         >
