@@ -1,14 +1,17 @@
 import React from "react";
 import Blog from "./blog";
+import Projects from "./projects";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { HashRouter, Routes, Route } from "react-router-dom";
+import CssBaseline from '@mui/material/CssBaseline';
 
 const ColorModeContext = React.createContext({toggleColorMode: () => {}})
 
 export default function App(props) {
-    const [mode, setMode] = React.useState('light');
+    const [mode, setMode] = React.useState('dark');
     const colorMode = React.useMemo(
         () => ({
             toggleColorMode: () => {
@@ -31,7 +34,15 @@ export default function App(props) {
     return (
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
-                <Blog />
+                <CssBaseline />
+                <HashRouter>
+                    <Routes>
+                        <Route path="/">
+                            <Route index element={<Blog />} />
+                            <Route path="projects" element={<Projects />} />
+                        </Route>
+                    </Routes>
+                </HashRouter>
                 <Fab size='medium' color='secondary' onClick={colorMode.toggleColorMode} sx={{position: 'fixed', bottom: 16, right: 16}}>
                     {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </Fab>

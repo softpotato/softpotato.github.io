@@ -21,7 +21,6 @@ function Header(props) {
                 {sections.map((sectionInfo) => {
                     return (<Button
                         color='inherit'
-                        noWrap
                         key={sectionInfo.title}
                         variant='text'
                         href={sectionInfo.url}

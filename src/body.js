@@ -29,10 +29,10 @@ function Body(props) {
             direction='row'
             justifyContent='center'
             alignItems='flex-start'
-            spacing={3}
-            sx={{ pl: 10, pr: 10 }}
+            spacing={{xs: 1, sm: 1, md: 1, lg: 2, xl: 3}}
+            sx={{ pl: {xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem'}, pr: {xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem'} }}
         >
-            <Grid item xs={8}>
+            <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
                 <Grid
                     container
                     direction='column'
@@ -42,7 +42,7 @@ function Body(props) {
                     <BodyFeed content={props.content} />
                 </Grid>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                 <BodyBanner bannerContent={props.bannerContent} />
             </Grid>
         </Grid>

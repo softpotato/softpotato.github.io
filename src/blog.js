@@ -1,5 +1,4 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Header from './header';
 import Body from './body';
@@ -9,9 +8,8 @@ import Footer from './footer';
 const title = "Ben's Dev Log";
 
 const sections = [
-  { title: "About (WIP)", url: "#" },
-  { title: "Projects (WIP)", url: "#" },
-  { title: "Tutorials (WIP)", url: "#" },
+  { title: "Projects", url: "#/projects" },
+  { title: "Tutorials", url: "#/tutorials" },
   { title: "Archive", url: "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing" }
 ];
 
@@ -35,8 +33,7 @@ const bannerContent = {
 
 // Citation: https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
 const importAll = r => r.keys().map(r);
-const markdownFiles = importAll(require.context('./markdown', false, /\.md$/)).sort().reverse();
-console.log(markdownFiles);
+const markdownFiles = importAll(require.context('./posts', false, /\.md$/)).sort().reverse();
 
 class Blog extends React.Component {
   constructor(props) {
@@ -57,7 +54,6 @@ class Blog extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <CssBaseline />
         <Container maxWidth="lg">
           <Header title={title} sections={sections} />
         </Container>
