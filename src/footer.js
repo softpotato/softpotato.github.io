@@ -19,8 +19,7 @@ function Footer(props) {
     return <Box component='footer' sx={{ bgcolor: 'background.paper', py: 6 }}>
         <Container>
             <Typography variant='subtitle2' color='text.secondary' align='center'>
-                This site does not collect any data. Instead it generates a lot of
-                useless data.
+                This site records visitation. No other information is collected outside of github.
             </Typography>
             <Typography variant="body2" color="text.secondary" align="center">
                 {'Copyright © '}

@@ -7,6 +7,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
+import Tutorials from "./tutorials";
 
 const ColorModeContext = React.createContext({toggleColorMode: () => {}})
 
@@ -40,6 +41,7 @@ export default function App(props) {
                         <Route path="/">
                             <Route index element={<Blog />} />
                             <Route path="projects" element={<Projects />} />
+                            <Route path="tutorials" element={<Tutorials />} />
                         </Route>
                     </Routes>
                 </HashRouter>

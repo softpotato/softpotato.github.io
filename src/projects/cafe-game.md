@@ -1,6 +1,6 @@
 # Cafe Game
 
-Temporary Progress Bar: 
+Status: 0%
 
-This is a simple Pygame on running a cafe. I'll update this post
-later if I start to make progress.
+- Programming Language: Python
+- Libraries: Pygame
