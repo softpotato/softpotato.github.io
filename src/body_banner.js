@@ -1,30 +1,33 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
 export default function BodyBanner(props) {
+    const { bannerContent } = props;
 
     return <Grid container spacing={2}>
         <Grid item>
             <Card>
                 <CardContent>
                     <Typography variant='h5'>
-                        {props.bannerContent.box1.title}
+                        {bannerContent.box1.title}
                     </Typography>
                     <Typography variant='body2'>
-                        {props.bannerContent.box1.content}
+                        {bannerContent.box1.content}
                     </Typography>
                 </CardContent>
             </Card>
         </Grid>
         <Grid item>
             <Typography variant='h5'>
-                {props.bannerContent.box2.title}
+                {bannerContent.box2.title}
             </Typography>
-            <Typography variant='body2'>
-                something
-            </Typography>
+            {bannerContent.box2.contact.map((info) => {
+                return <Typography variant='body2'>
+                    {info.type + ": " + info.value + "\n"}
+                </Typography>
+            })}
         </Grid>
     </Grid>
 }

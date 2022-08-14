@@ -8,30 +8,18 @@ import Footer from './footer';
 const title = "Ben's Blog";
 
 const sections = [
-  { title: "About", url: "#" },
-  { title: "Projects", url: "#" },
-  { title: "Archive", url: "#" },
-  { title: "IDK", url: "#" }
-];
-
-const contact = [
-  { type: "Mobile", value: "+1 (425) 435-3700" },
-  { type: "Email", value: "lin.benjamin1@gmail.com" }
+  { title: "About (WIP)", url: "#" },
+  { title: "Projects (WIP)", url: "#" },
+  { title: "Tutorials (WIP)", url: "#" },
+  { title: "Archive (WIP)", url: "#" }
 ];
 
 const bannerContent = {
   box1: {
     title: "About Me",
-    content: "I am currently a new graduate "
-    + "from the University of Washington Bothell "
-    + "searching for a job. I'm not full sure what "
-    + "I plan to do in the future at the moment, but "
-    + "I'm mostly doing this blog to help push myself "
-    + "and reflect more on what I've done. I was also "
-    + "told to do this by a professor before I graduated, "
-    + "but I never had the time to do so. Being jobless "
-    + "after college, I got all the free time I want. "
-    + "maybe a little too much though... "
+    content: "I am a new graduate from the University of Washington Bothell "
+    + "with a double major in mathematics and computer science. Currently "
+    + "jobless at the moment, but searching and working on various personal projects. "
   },
   box2: {
     title: "Contact Information",
@@ -57,22 +45,6 @@ class Blog extends React.Component {
   }
 
   async componentDidMount() {
-    // Bad code - apparently for promise, it only works for 1
-    //  asynchronous issues arise.
-    // for (let i = 0; i < markdownList.length; i++) {
-    //   fetch(markdownList[i].path)
-    //     .then((res) => {
-    //       return res.text();
-    //     })
-    //     .then((text) => {
-    //       //console.log(text);
-    //       this.setState({
-    //         content: [...this.state.content, text]
-    //       });
-    //     })
-    //     .catch(err => console.log(err));
-    // }
-
     const posts = await Promise.all(
       markdownFiles.map((file) => fetch(file).then((res) => res.text())))
       .catch((err) => console.error(err));
@@ -85,9 +57,10 @@ class Blog extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="lg">
-          <Header title={title} sections={sections} contact={contact} />
+          <Header title={title} sections={sections} />
         </Container>
         <Body content={this.state.posts} bannerContent={bannerContent} />
+        <Footer />
       </React.Fragment>
     );
   }

@@ -4,7 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
 
 function Header(props) {
-    const { title, contact, sections } = props;
+    const { title, sections } = props;
 
     return (
         <React.Fragment>
@@ -17,13 +17,6 @@ function Header(props) {
             >
                 {title}
             </Typography>
-            <Toolbar variant='dense' sx={{ justifyContent: 'center', borderBottom: 1, borderColor: 'divider' }}>
-                {contact.map((contactInfo) => {
-                    return (<Typography variant='subtitle1' sx={{ p: 1, flexShrink: 0 }} key={contactInfo.value}>
-                        {contactInfo.type + ": " + contactInfo.value}
-                    </Typography>);
-                })}
-            </Toolbar>
             <Toolbar variant='dense' sx={{ justifyContent: 'center' }} component="nav">
                 {sections.map((sectionInfo) => {
                     return (<Link
