@@ -11,7 +11,7 @@ const sections = [
   { title: "About (WIP)", url: "#" },
   { title: "Projects (WIP)", url: "#" },
   { title: "Tutorials (WIP)", url: "#" },
-  { title: "Archive (WIP)", url: "#" }
+  { title: "Archive", url: "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing" }
 ];
 
 const bannerContent = {

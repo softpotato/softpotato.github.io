@@ -22,3 +22,5 @@ These are tutorials/templates online that I found where I copy/pasted or used it
 
 - [https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f](https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f)
 - [https://github.com/mui/material-ui/tree/v5.10.0/docs/data/material/getting-started/templates/blog](https://github.com/mui/material-ui/tree/v5.10.0/docs/data/material/getting-started/templates/blog)
+- [https://github.com/gitname/react-gh-pages](https://github.com/gitname/react-gh-pages)
+- [https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/](https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/)

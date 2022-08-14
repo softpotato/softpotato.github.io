@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 /**
  * 
  * This section is the footer. It
@@ -15,10 +16,19 @@ import Typography from '@mui/material/Typography';
  */
 function Footer(props) {
 
-    return <Box component='footer' sx={{bgcolor: 'background.paper', py:6}}>
+    return <Box component='footer' sx={{ bgcolor: 'background.paper', py: 6 }}>
         <Container>
-            <Typography variant='h6' align='center'>
-                TODO: Add footer stuff.
+            <Typography variant='subtitle2' color='text.secondary' align='center'>
+                This site does not collect any data. Instead it generates a lot of
+                useless data.
+            </Typography>
+            <Typography variant="body2" color="text.secondary" align="center">
+                {'Copyright © '}
+                <Link color="inherit" href="https://softpotato.github.io/">
+                    Benjamin Lin
+                </Link>{' '}
+                {new Date().getFullYear()}
+                {'.'}
             </Typography>
         </Container>
     </Box>
