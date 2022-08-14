@@ -5,7 +5,7 @@ import Header from './header';
 import Body from './body';
 import Footer from './footer';
 
-const title = "Ben's Blog";
+const title = "Ben's Dev Log";
 
 const sections = [
   { title: "About (WIP)", url: "#" },
@@ -24,9 +24,9 @@ const bannerContent = {
   box2: {
     title: "Contact Information",
     contact: [
-      {type: 'phone', value: '+1 (425) 435-3700'},
-      {type: 'email', value: 'lin.benjamin1@gmail.com'},
-      {type: 'linkedin', value: 'https://www.linkedin.com/in/benjamin-lin-a2574b174/'}
+      {type: 'email', value: 'mailto:lin.benjamin1@gmail.com'},
+      {type: 'linkedin', value: 'https://www.linkedin.com/in/benjamin-lin-a2574b174/'},
+      {type: 'github', value: 'https://github.com/softpotato'}
     ]
   }
 }
