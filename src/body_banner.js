@@ -1,6 +1,5 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MailIcon from '@mui/icons-material/Mail';
@@ -9,22 +8,22 @@ import RedditIcon from '@mui/icons-material/Reddit';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useTheme } from '@mui/material/styles';
 
 export default function BodyBanner(props) {
     const { bannerContent } = props;
+    const theme = useTheme();
 
     return <Grid container spacing={2}>
         <Grid item>
-            <Card>
-                <CardContent>
-                    <Typography variant='h5'>
-                        {bannerContent.box1.title}
-                    </Typography>
-                    <Typography variant='body2'>
-                        {bannerContent.box1.content}
-                    </Typography>
-                </CardContent>
-            </Card>
+            <Paper sx={{ p: 2, bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.200' }}>
+                <Typography variant='h5'>
+                    {bannerContent.box1.title}
+                </Typography>
+                <Typography variant='body2'>
+                    {bannerContent.box1.content}
+                </Typography>
+            </Paper>
         </Grid>
         <Grid item>
             <Typography variant='h5'>

@@ -5,6 +5,7 @@ import Header from './header';
 import Body from './body';
 import Footer from './footer';
 
+
 const title = "Ben's Dev Log";
 
 const sections = [
@@ -18,18 +19,19 @@ const bannerContent = {
   box1: {
     title: "About Me",
     content: "I am a new graduate from the University of Washington Bothell "
-    + "with a double major in mathematics and computer science. Currently "
-    + "jobless at the moment, but searching and working on various personal projects. "
+      + "with a double major in mathematics and computer science. Currently "
+      + "jobless at the moment, but searching and working on various personal projects. "
   },
   box2: {
     title: "Contact Information",
     contact: [
-      {type: 'email', value: 'mailto:lin.benjamin1@gmail.com'},
-      {type: 'linkedin', value: 'https://www.linkedin.com/in/benjamin-lin-a2574b174/'},
-      {type: 'github', value: 'https://github.com/softpotato'}
+      { type: 'email', value: 'mailto:lin.benjamin1@gmail.com' },
+      { type: 'linkedin', value: 'https://www.linkedin.com/in/benjamin-lin-a2574b174/' },
+      { type: 'github', value: 'https://github.com/softpotato' }
     ]
   }
 }
+
 
 // Citation: https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
 const importAll = r => r.keys().map(r);
