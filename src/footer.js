@@ -13,4 +13,5 @@
  */
 function Footer(props) {
 
+    return <div />
 }

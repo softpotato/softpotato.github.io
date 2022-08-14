@@ -2,8 +2,6 @@ import Grid from '@mui/material/Grid';
 import BodyFeed from './body_feed';
 import BodyBanner from './body_banner';
 
-import {ReadFile} from './utils';
-
 /**
  * This contains the main body
  * of the blog. It's broken down
@@ -30,14 +28,22 @@ function Body(props) {
             container
             direction='row'
             justifyContent='center'
-            alignItems='center'
-            sx={{ pl: 10 }}
+            alignItems='flex-start'
+            spacing={3}
+            sx={{ pl: 10, pr: 10 }}
         >
             <Grid item xs={8}>
-                <BodyFeed />
+                <Grid
+                    container
+                    direction='column'
+                    justifyContent='center'
+                    spacing={2}
+                >
+                    <BodyFeed content={props.content} />
+                </Grid>
             </Grid>
             <Grid item xs={4}>
-                <BodyBanner />
+                <BodyBanner bannerContent={props.bannerContent} />
             </Grid>
         </Grid>
     );
