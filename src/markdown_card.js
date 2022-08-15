@@ -13,7 +13,7 @@ export default function MarkdownCard(props) {
     return (<Card>
         <CardContent>
             <ReactMarkdown
-                children={post[1].split('\n',10).join('\n') + "..."}
+                children={post[1].split('\n',15).join('\n') + "..."}
                 remarkPlugins={[remarkMath]}
                 rehypePlugins={[rehypeKatex]}
             />
