@@ -1,9 +1,5 @@
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import ReactMarkdown from 'react-markdown'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
+import MarkdownCard from './markdown_card';
 
 /**
  * This function renders a large grid
@@ -11,7 +7,7 @@ import rehypeKatex from 'rehype-katex'
  * webpage for the post.
  */
 export default function PostFeed(props) {
-    const {posts} = props;
+    const {posts, subfolder} = props;
 
     return <Grid
         container
@@ -22,16 +18,8 @@ export default function PostFeed(props) {
         }}
     >
         {posts.map((post) => {
-            return <Grid item xs={12} sm={12} md={6} lg={4} xl={4} key={post.split(' ')[1]}>
-                <Card>
-                    <CardContent>
-                        <ReactMarkdown
-                            children={post}
-                            remarkPlugins={[remarkMath]}
-                            rehypePlugins={[rehypeKatex]}
-                        />
-                    </CardContent>
-                </Card>
+            return <Grid item xs={12} sm={12} md={6} lg={4} xl={4} key={post[0]}>
+                <MarkdownCard post={post} subfolder={subfolder}  />
             </Grid>
         })}
     </Grid>

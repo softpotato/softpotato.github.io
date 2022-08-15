@@ -16,7 +16,7 @@ const sections = [
 const bannerContent = {
   box1: {
     title: "About Me",
-    content: "I am a new graduate from the University of Washington Bothell "
+    content: "I am a recent graduate from the University of Washington Bothell "
       + "with a double major in mathematics and computer science. Currently "
       + "jobless at the moment, but searching and working on various personal projects. "
   },
@@ -30,38 +30,19 @@ const bannerContent = {
   }
 }
 
+function Blog(props) {
+  const {posts} = props;
 
-// Citation: https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
-const importAll = r => r.keys().map(r);
-const markdownFiles = importAll(require.context('./posts', false, /\.md$/)).sort().reverse();
+  return (
+    <React.Fragment>
+      <Container maxWidth="lg">
+        <Header title={title} sections={sections} />
+      </Container>
+      <Body content={posts} bannerContent={bannerContent} />
+      <Footer />
+    </React.Fragment>
+  );
 
-class Blog extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      posts: []
-    };
-  }
-
-  async componentDidMount() {
-    const posts = await Promise.all(
-      markdownFiles.map((file) => fetch(file).then((res) => res.text())))
-      .catch((err) => console.error(err));
-
-    this.setState((state) => ({ ...state, posts }));
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <Container maxWidth="lg">
-          <Header title={title} sections={sections} />
-        </Container>
-        <Body content={this.state.posts} bannerContent={bannerContent} />
-        <Footer />
-      </React.Fragment>
-    );
-  }
 }
 
 export default Blog;

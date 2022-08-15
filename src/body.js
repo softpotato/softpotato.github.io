@@ -39,7 +39,7 @@ function Body(props) {
                     justifyContent='center'
                     spacing={2}
                 >
-                    <BodyFeed content={props.content} />
+                    <BodyFeed content={props.content} subfolder='posts' />
                 </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>

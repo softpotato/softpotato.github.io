@@ -1,24 +1,16 @@
-import { useEffect, useState } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import ReactMarkdown from 'react-markdown';
 import Grid from '@mui/material/Grid';
+import MarkdownCard from './markdown_card';
 
 export default function BodyFeed(props) {
-    const [feed, setFeed] = useState([]);
-
-    useEffect(() => {
-        setFeed(props.content);
-    }, [props.content]);
+    const {content, subfolder} = props;
 
     return (
-        feed.map((post, i) => {
+        content.map((post, i) => {
             return <Grid item key={"post" + i}>
-                <Card>
-                    <CardContent>
-                        <ReactMarkdown children={post} />
-                    </CardContent>
-                </Card>
+                <MarkdownCard 
+                    post = {post}
+                    subfolder = {subfolder}
+                />
             </Grid>
         })
     );
