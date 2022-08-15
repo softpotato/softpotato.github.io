@@ -1,3 +1,4 @@
+p2~
 # Cafe Game
 
 Status: 0%
