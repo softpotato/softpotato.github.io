@@ -1,16 +1,48 @@
 t0~
 # Creating Your Own GitHub Blog
 
-I need to update the structure of my blog to
-allow users to read individual posts before I 
-can start writing this. This is a simple post
-that I'll write that will guide a user through
-using React and MUIv5 to create their own blog
-and different customization features you can do
-to extend or enrich the page.
+Completion: 0%
 
-This is my first time writing a blog and I'll
-be learning some parts as I'm writing this as 
-well. When I get this page up, I hope you'll 
-join me on my journey through front end webpage
-design.
+This is a comprehensive guide to creating your own GitHub blog.
+This guide is aimed at beginners who wish to learn React and
+set up a simple blog to start their journey. 
+
+We'll be focusing on the following topics and libraries in this
+tutorial.
+- JavaScript
+- React
+- Function Components
+- Hooks
+- Material UI library
+- gh-pages library
+- Static page loading
+- Markdown
+- react-markdown library + extensions
+- Grids (Flexbox Wrappers)
+
+Furthermore, I'll be avoiding the use of
+images, since each github repo has a limited
+amount of storage. I'm trying to keep things 
+as small as possible. (Ironically though
+writing in a wrapper for JavaScript probably
+isn't the most efficient use of space)
+
+## Installation and Setup of Page
+
+_Step 1: Install Node Package Manager_
+
+As with all JavaScript projects built using
+React, we start with the installation of 
+Node Package Manager (NPM). This is how 
+packages are managed in React. We'll be
+importing a lot of packages to write our
+blog.
+
+_Step 2: Run the initial react library setup_
+
+Run the following command in your target directory.
+
+```powershell
+npx create-react-app <app name>
+```
+
