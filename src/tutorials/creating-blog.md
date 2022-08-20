@@ -1,11 +1,11 @@
-t0~
+t0|
 # Creating Your Own GitHub Blog
 
 Completion: 0%
 
 _Created: 8/14/2022_
 
-_Updated: 8/15/2022_
+_Updated: 8/19/2022_
 
 This is a comprehensive guide to creating your own GitHub blog.
 This guide is aimed at beginners learning React for their first time. 
@@ -92,3 +92,7 @@ I didn't want to cover this, because I don't really understand it myself and the
 ## Project Setup
 
 This section covers setting up files and how we're going to organize this application.
+
+Sorry if I stopped updating here. I just got really lazy and I'll try to add more
+to this this weekend. I'll only work on this tutorial on the weekend, so I can focus on
+other projects during the weekday.

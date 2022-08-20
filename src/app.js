@@ -27,11 +27,11 @@ export default function App(props) {
     useEffect(() => {
         async function fetchTutorialFiles() {
             const posts = await Promise.all(
-                tutorialFiles.map((file) => fetch(file).then((res) => res.text())))
+                tutorialFiles.map((file) => fetch(file).then((res) => res.text() )))
                 .catch((err) => console.error(err));
             const parsedPosts = [];
             for (let i = 0; i < posts.length; i++) {
-                parsedPosts.push(posts[i].split('~'));
+                parsedPosts.push(posts[i].split('|'));
             }
             setTutFiles(parsedPosts);
         }
@@ -41,7 +41,7 @@ export default function App(props) {
                 .catch((err) => console.error(err));
             const parsedPosts = [];
             for (let i = 0; i < posts.length; i++) {
-                parsedPosts.push(posts[i].split('~'));
+                parsedPosts.push(posts[i].split('|'));
             }
             setProjFiles(parsedPosts);
         }
@@ -51,7 +51,7 @@ export default function App(props) {
                 .catch((err) => console.error(err));
             const parsedPosts = [];
             for (let i = 0; i < posts.length; i++) {
-                parsedPosts.push(posts[i].split('~'));
+                parsedPosts.push(posts[i].split('|'));
             }
             setPostFiles(parsedPosts);
         }
