@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.69b07037.css",
-    "main.js": "/static/js/main.b590048f.js",
+    "main.js": "/static/js/main.d92cc2cb.js",
     "static/js/787.c7a045b0.chunk.js": "/static/js/787.c7a045b0.chunk.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -62,20 +62,21 @@
     "static/media/KaTeX_Size2-Regular.woff2": "/static/media/KaTeX_Size2-Regular.2960900c4f271311eb36.woff2",
     "static/media/KaTeX_Size4-Regular.woff2": "/static/media/KaTeX_Size4-Regular.e418bf257af1052628d8.woff2",
     "static/media/KaTeX_Size3-Regular.woff": "/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
-    "static/media/creating-blog.md": "/static/media/creating-blog.1bc03763729483263680.md",
+    "static/media/creating-blog.md": "/static/media/creating-blog.c40ba05469f1852cfe64.md",
+    "static/media/2022-8-19.md": "/static/media/2022-8-19.8e477f4139546f1e1993.md",
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
-    "static/media/2022-8-13.md": "/static/media/2022-8-13.6ebea674c7525d0f5005.md",
-    "static/media/2022-8-15.md": "/static/media/2022-8-15.2acb503cbfdcd7ad4e23.md",
+    "static/media/2022-8-13.md": "/static/media/2022-8-13.7a5b00a9eb7c38b8b406.md",
+    "static/media/2022-8-15.md": "/static/media/2022-8-15.4c28f47499e567c98142.md",
     "index.html": "/index.html",
-    "static/media/relational-database.md": "/static/media/relational-database.fb865bd8746bad698417.md",
-    "static/media/github-blog.md": "/static/media/github-blog.9846c531e5543ad9c3cf.md",
-    "static/media/cafe-game.md": "/static/media/cafe-game.69c004fbbef659cc0b6c.md",
+    "static/media/cafe-game.md": "/static/media/cafe-game.e069141cab439191d301.md",
+    "static/media/relational-database.md": "/static/media/relational-database.fa9207d716826eb49563.md",
+    "static/media/github-blog.md": "/static/media/github-blog.1fb99cbcfebb7d218b9a.md",
     "main.69b07037.css.map": "/static/css/main.69b07037.css.map",
-    "main.b590048f.js.map": "/static/js/main.b590048f.js.map",
+    "main.d92cc2cb.js.map": "/static/js/main.d92cc2cb.js.map",
     "787.c7a045b0.chunk.js.map": "/static/js/787.c7a045b0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.69b07037.css",
-    "static/js/main.b590048f.js"
+    "static/js/main.d92cc2cb.js"
   ]
 }
