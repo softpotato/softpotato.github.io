@@ -7,7 +7,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Fragment } from 'react';
 import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
-import style from './markdown-styles.module.css';
 
 const title = "Post";
 const sections = [
@@ -17,7 +16,23 @@ const sections = [
     { title: "Archive", url: "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing" }
 ];
 
-export default function Post(props) {
+/**
+ * This a slight variation on a post component, where the
+ * content has better separation and is better to be read.
+ * Also, this includes optional features such as side drawer
+ * content bars, however, this requires a different format
+ * for the content. I've been messing a bit around with 
+ * UWP applications, so I might create a text editor to
+ * help with writing these blog posts. At least so it's
+ * not as weirdly bizarre and text editor heavy as this
+ * one.
+ * 
+ * TODO: TO Finish this thought
+ * 
+ * @param {*} props 
+ * @returns 
+ */
+export default function EnhancedPost(props) {
     const { post } = props;
 
     return (<Fragment>
@@ -35,7 +50,6 @@ export default function Post(props) {
                     children={post[1]}
                     remarkPlugins={[remarkMath]}
                     rehypePlugins={[rehypeKatex]}
-                    className={style.ReactMarkDown}
                 />
             </CardContent>
         </Card>

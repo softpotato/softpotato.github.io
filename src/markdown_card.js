@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
+import style from './markdown-styles.module.css';
 
 export default function MarkdownCard(props) {
     const {post, subfolder} = props;
@@ -16,6 +17,7 @@ export default function MarkdownCard(props) {
                 children={post[1].split('\n',15).join('\n') + "..."}
                 remarkPlugins={[remarkMath]}
                 rehypePlugins={[rehypeKatex]}
+                className={style.ReactMarkDown}
             />
         </CardContent>
         <CardActions>
