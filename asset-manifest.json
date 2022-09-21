@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.69b07037.css",
-    "main.js": "/static/js/main.d92cc2cb.js",
+    "main.css": "/static/css/main.d5a6a1b3.css",
+    "main.js": "/static/js/main.f432d39f.js",
     "static/js/787.c7a045b0.chunk.js": "/static/js/787.c7a045b0.chunk.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -50,6 +50,7 @@
     "static/media/KaTeX_Size4-Regular.ttf": "/static/media/KaTeX_Size4-Regular.4ad7c7e8bb8d10a34bb7.ttf",
     "static/media/KaTeX_SansSerif-Regular.woff2": "/static/media/KaTeX_SansSerif-Regular.cd5e231e0cc53b2cb2c0.woff2",
     "static/media/KaTeX_Script-Regular.woff2": "/static/media/KaTeX_Script-Regular.c81d1b2a4b75d3eded60.woff2",
+    "static/media/2022-9-20.md": "/static/media/2022-9-20.507325997e20653dbb6c.md",
     "static/media/KaTeX_Caligraphic-Bold.woff": "/static/media/KaTeX_Caligraphic-Bold.d757c535a2e5902f1325.woff",
     "static/media/KaTeX_Caligraphic-Regular.woff": "/static/media/KaTeX_Caligraphic-Regular.db074fa22cf224af93d7.woff",
     "static/media/KaTeX_Size3-Regular.ttf": "/static/media/KaTeX_Size3-Regular.8d6b6822586eea3d3b20.ttf",
@@ -71,12 +72,12 @@
     "static/media/cafe-game.md": "/static/media/cafe-game.e069141cab439191d301.md",
     "static/media/relational-database.md": "/static/media/relational-database.fa9207d716826eb49563.md",
     "static/media/github-blog.md": "/static/media/github-blog.1fb99cbcfebb7d218b9a.md",
-    "main.69b07037.css.map": "/static/css/main.69b07037.css.map",
-    "main.d92cc2cb.js.map": "/static/js/main.d92cc2cb.js.map",
+    "main.d5a6a1b3.css.map": "/static/css/main.d5a6a1b3.css.map",
+    "main.f432d39f.js.map": "/static/js/main.f432d39f.js.map",
     "787.c7a045b0.chunk.js.map": "/static/js/787.c7a045b0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.69b07037.css",
-    "static/js/main.d92cc2cb.js"
+    "static/css/main.d5a6a1b3.css",
+    "static/js/main.f432d39f.js"
   ]
 }
