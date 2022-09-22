@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d5a6a1b3.css",
-    "main.js": "/static/js/main.ab72ebcd.js",
+    "main.js": "/static/js/main.e3f1f0c0.js",
     "static/js/787.c7a045b0.chunk.js": "/static/js/787.c7a045b0.chunk.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -70,14 +70,15 @@
     "static/media/2022-8-15.md": "/static/media/2022-8-15.4c28f47499e567c98142.md",
     "index.html": "/index.html",
     "static/media/cafe-game.md": "/static/media/cafe-game.e069141cab439191d301.md",
+    "static/media/2022-9-21.md": "/static/media/2022-9-21.62e23e0a627dff6ed4f4.md",
     "static/media/relational-database.md": "/static/media/relational-database.fa9207d716826eb49563.md",
     "static/media/github-blog.md": "/static/media/github-blog.1fb99cbcfebb7d218b9a.md",
     "main.d5a6a1b3.css.map": "/static/css/main.d5a6a1b3.css.map",
-    "main.ab72ebcd.js.map": "/static/js/main.ab72ebcd.js.map",
+    "main.e3f1f0c0.js.map": "/static/js/main.e3f1f0c0.js.map",
     "787.c7a045b0.chunk.js.map": "/static/js/787.c7a045b0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5a6a1b3.css",
-    "static/js/main.ab72ebcd.js"
+    "static/js/main.e3f1f0c0.js"
   ]
 }
