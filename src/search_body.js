@@ -47,6 +47,8 @@ import React from 'react'
 class SearchBody extends React.Component {
     constructor(props) {
         super(props);
+
+        console.log(props);
     }
 
     render() {
