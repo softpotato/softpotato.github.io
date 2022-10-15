@@ -1,0 +1,99 @@
+{
+    "created": "9-24-2022",
+    "updated": "10-13-2022",
+    "title": "Example Page Designs",
+    "description": "The text here is the main card text. This is a sample card layout",
+    "tags": [
+        "test", "general-info"
+    ],
+    "splash_image": "",
+    "type": "tutorial",
+    "pages": [
+        {
+            "type": "header1",
+            "content": "Webpage JSON Content Tutorial",
+            "sections": [
+                {
+                    "type": "paragraph-note",
+                    "content": "This text gets rendered directly under header."
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Due to the unique structure of blogs and other content, I've decided to alter the storage method for the blog. Markdown files don't provide enough formatting information in order to render the content, so I'm switching to using JSON files. The only downside is that I can't seem to press enter on these lines, and I'll need to create custom content formatting functions for rendering the content properly. This structure introduces a lot more sources of error, but it should be worth it for what I'm about to do to add the additional UI features I wanted."
+                },
+                {
+                    "type": "paragraph",
+                    "content": "These JSON posts are not like the main feed's posts, where it's general updates and other things like that. These are for sorted information such as tutorials, projects, and even web tools. These posts usually require a higher level of control that is limited by using solely react-markdown, like side bar navigation and such. I will also be adopting a similar tutorial format like Google's tutorial pages for Android development."
+                },
+                {
+                    "type": "paragraph",
+                    "content": "The next page will feature all the unique content that you can potentially create if you're forking my source code for some reason. Personally, I'm doing this so I remember what I need to make or what is already added, cause my memory sucks. Like my brain sucks. Seriously, forgetting how to for loop in Python during a coding interview sucks."
+                }
+            ]
+        },
+        {
+            "type": "header1",
+            "content": "Content Examples",
+            "sections": [
+                {
+                    "type": "paragraph",
+                    "content": "This is a paragraph. These are used to render the bulk of the webpage. These paragraphs use react-markdown to render and format, so feel free to add latex or markdown here."
+                },
+                {
+                    "type": "header2",
+                    "content": "Header 2 title header"
+                },
+                {
+                    "type": "dropdown",
+                    "content": "dropdown container",
+                    "sections": [
+                        {
+                            "type": "paragraph",
+                            "content": "drop down containers contain extra unreleated information that is useful to be shrunk or expanded. Usually for notes. I might make one for organizing tutorials, but I like Google's page style instead, so I'm following that method."
+                        },
+                        {
+                            "type": "paragraph",
+                            "content": "Anyways, the content in these dropdown containers render all the content in the sections field in the JSON file."
+                        }
+                    ]
+                },
+                {
+                    "type": "tool",
+                    "content": "dummy tool"
+                },
+                {
+                    "type": "code",
+                    "code": [
+                        {
+                            "type": "python",
+                            "content": "'''code boxes usually have multiple languages supported depending on the tutorial type. E.g. if you're working on Android, Java or Kotlin might be used. Showing for both is a good idea.'''\nx = 12\nprint(x)"
+                        },
+                        {
+                            "type": "java",
+                            "content": "# it's been too long since I last touched this."
+                        }
+                    ]
+                },
+                {
+                    "type": "progress-bar",
+                    "style": "default",
+                    "value": 25
+                },
+                {
+                    "type": "static-image",
+                    "content": "test-image.jpg",
+                    "caption": "This is a test caption for the post.",
+                    "alt-text": "This is alternate text for blind people."
+                },
+                {
+                    "type": "3d",
+                    "content": "to_figure_out"
+                },
+                {
+                    "type": "warning",
+                    "content": "This is a warning sign. These are used for things to look out for when following a tutorial or such."
+                }
+            ]
+        }
+    ]
+}

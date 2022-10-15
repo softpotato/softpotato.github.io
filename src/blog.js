@@ -1,15 +1,13 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import Header from './header';
-import Body from './body';
+import Body from './primary_body';
 import Footer from './footer';
 
 
 const title = "Ben's Dev Log";
 
 const sections = [
-  { title: "Projects", url: "#/projects" },
-  { title: "Tutorials", url: "#/tutorials" },
   { title: "Archive", url: "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing" }
 ];
 

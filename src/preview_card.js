@@ -8,7 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
 import style from './markdown-styles.module.css';
 
-export default function MarkdownCard(props) {
+export default function PreviewCard(props) {
     const {post, subfolder} = props;
 
     return (<Card>

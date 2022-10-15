@@ -12,8 +12,6 @@ import style from './markdown-styles.module.css';
 const title = "Post";
 const sections = [
     { title: "Home", url: "#/" },
-    { title: "Projects", url: "#/projects" },
-    { title: "Tutorials", url: "#/tutorials" },
     { title: "Archive", url: "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing" }
 ];
 

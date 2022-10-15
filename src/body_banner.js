@@ -10,6 +10,13 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTheme } from '@mui/material/styles';
 
+/**
+ * Helper function to body. This genereates the long vertical side information 
+ * for the blog such as user information, social media, and contact information.
+ * 
+ * @param {*} props 
+ * @returns 
+ */
 export default function BodyBanner(props) {
     const { bannerContent } = props;
     const theme = useTheme();
