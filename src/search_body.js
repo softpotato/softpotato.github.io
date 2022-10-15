@@ -45,5 +45,11 @@ import React from 'react'
  *      - compressed list view
  */
 class SearchBody extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
+    render() {
+        return <div />
+    }
 }
