@@ -30,7 +30,7 @@ export default function TagList({pageID, tags, hyperlinks, renderLimit}) {
     const renderTagElements = useMemo(() => {
         const chips = [];
         for (let i = 0; i < Math.min(tags.length, renderLimit); i++) {
-            chips.push(<Chip key={pageID + "-chip-" +tags[i]} label={tags[i]} component="a" href={hyperlinks.length > 0 ? hyperlinks[i] : null} clickable={hyperlinks.length > 0} />);
+            chips.push(<Chip key={pageID + "-chip-" +tags[i]} label={tags[i]} component="a" href={hyperlinks.length > 0 ? hyperlinks[i].replace(" ", "_") : null} clickable={hyperlinks.length > 0} />);
         }
         return chips;
     }, [tags, hyperlinks, renderLimit, pageID]);

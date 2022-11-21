@@ -7,15 +7,15 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
-//import EnhancedPost from "./enhanced_post";
 import BlogStateManager from "./state/blog_state_manager";
 import ErrorPage from "./error_page";
+import SectionPage from "./section_page";
+import EnhancedPost from "./enhanced_post";
 
 // Manual Language Pack Imports
 import English from './lang/english.json';
 import Emoji from './lang/emoji.json';
 import French from './lang/french.json';
-import SectionPage from "./section_page";
 
 // useContext resource https://beta.reactjs.org/apis/react/createContext
 export const SettingContext = React.createContext([null, null]); // passes down 2 callback functions
@@ -195,7 +195,7 @@ export default function App() {
                 outputTagPages.push(
                     <Route
                         key={tagName}
-                        path={tagName}
+                        path={"tags/" + tagName.replace(" ", "_")}
                         element={<SectionPage
                             sectionKey={tagName}
                             title={tagName in language ? language[tagName] : tagName}
@@ -210,6 +210,18 @@ export default function App() {
         return outputTagPages;
     }, [tags, language]);
 
+    const postPages = useMemo(() => {
+        return jsonPosts.map((post) => {
+            return <Route 
+                key={"post-" + post["perma-link"]}
+                path={"posts/" + post["perma-link"]}
+                element={
+                    <EnhancedPost post={post} />
+                }
+            />;
+        });
+
+    }, []);
 
     /**
      * If you see this. It's attrocious. I agree.
@@ -229,6 +241,7 @@ export default function App() {
                             })}
                             {sectionPages}
                             {tagPages}
+                            {postPages}
                         </Route>
                     </Routes>
                 </HashRouter>

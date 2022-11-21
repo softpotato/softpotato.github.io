@@ -98,9 +98,9 @@ export default function PreviewCardCozy({ pageID, data }) {
 
     }, [data]);
 
-    return <Grid item>
+    return <Grid item key={"card-cozy-" + data["perma-link"]}>
         <Card>
-            <CardActionArea>
+            <CardActionArea href={"#/posts/" + data["perma-link"]}>
                 {data["splash_image"] !== "" &&
                     <CardMedia
                         component="img"
