@@ -2,12 +2,22 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 
+/**
+ * This component acts as the header. It
+ * renders a centered title and a list
+ * of hyperlinks below to redirect the user
+ * around.
+ * 
+ * @param {*} props 
+ * @returns 
+ */
 function Header(props) {
     const { title, sections } = props;
 
     return (
-        <React.Fragment>
+        <Container maxWidth="lg">
             <Typography
                 variant="h2"
                 color="inherit"
@@ -32,7 +42,7 @@ function Header(props) {
                     </Button>);
                 })}
             </Toolbar>
-        </React.Fragment>
+        </Container>
     );
 }
 

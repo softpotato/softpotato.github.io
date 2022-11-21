@@ -5,21 +5,27 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
 import style from './markdown-styles.module.css';
+import { SettingContext } from './app';
 
-const title = "Post";
-const sections = [
-    { title: "Home", url: "#/" },
-    { title: "Archive", url: "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing" }
-];
-
+/**
+ * A post is an old version of the current rendering system. It
+ * can ONLY render a raw markdown input. I use it primarily for
+ * the primary feed, where it doesn't require any data parsing
+ * or sorting.
+ * 
+ * @param {*} props 
+ * @returns 
+ */
 export default function Post(props) {
     const { post } = props;
 
+    const { language } = useContext(SettingContext);
+
     return (<Fragment>
-        <Header title={title} sections={sections} />
+        <Header title={language['primary-post-title']} sections={language['primary-post-navigation']} />
         <Card
             sx={{
                 ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },

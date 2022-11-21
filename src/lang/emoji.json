@@ -1,0 +1,90 @@
+{
+    "language": "emoji",
+    "footer-language-label": "Langauge",
+    "primary-title": "💩",
+    "navigation": [
+        {
+            "title": "🏠",
+            "url": "#"
+        },
+        {
+            "title": "📦",
+            "url": "#/projects"
+        },
+        {
+            "title": "📖",
+            "url": "#/tutorials"
+        },
+        {
+            "title": "⚒️",
+            "url": "#/tools"
+        },
+        {
+            "title": "🔍",
+            "url": "#/search"
+        },
+        {
+            "title": "🗃️",
+            "url": "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing"
+        }
+    ],
+    "primary-banner-box1-title": "➡️😒⬅️",
+    "primary-banner-box1-content": "🎮",
+    "primary-banner-box2-title": "☎️",
+    "primary-banner-box2-content": [
+        {
+            "type": "email",
+            "value": "mailto:lin.benjamin1@gmail.com"
+        },
+        {
+            "type": "linkedin",
+            "value": "https://www.linkedin.com/in/benjamin-lin-a2574b174/"
+        },
+        {
+            "type": "github",
+            "value": "https://github.com/softpotato"
+        }
+    ],
+    "section-projects-title": "📦",
+    "section-tutorials-title": "📖",
+    "section-tools-title": "⚒️",
+    "section-search-title": "🔍",
+    "tag-modal-title": "🏷️",
+    "tag-group-names": [
+        "🌀",
+        "🏷️",
+        "💻🔥",
+        "😵‍💫",
+        "🥔"
+    ],
+    "tag-inclusion-and-or-label": "🚪",
+    "tag-exclusion-and-or-label": "🔥",
+    "primary-post-title": "🦉",
+    "primary-post-navigation": [
+        {
+            "title": "🏠",
+            "url": "#"
+        },
+        {
+            "title": "📦",
+            "url": "#/projects"
+        },
+        {
+            "title": "📖",
+            "url": "#/tutorials"
+        },
+        {
+            "title": "⚒️",
+            "url": "#/tools"
+        },
+        {
+            "title": "🔍",
+            "url": "#/search"
+        },
+        {
+            "title": "🗃️",
+            "url": "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing"
+        }
+    ],
+    "tag-menu-button": "🍱"
+}

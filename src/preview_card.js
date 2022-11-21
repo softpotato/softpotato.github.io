@@ -8,6 +8,12 @@ import CardActions from '@mui/material/CardActions';
 import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
 import style from './markdown-styles.module.css';
 
+/**
+ * TODO: To deprecate and replace this with the new 
+ * search function result
+ * @param {*} props 
+ * @returns 
+ */
 export default function PreviewCard(props) {
     const {post, subfolder} = props;
 

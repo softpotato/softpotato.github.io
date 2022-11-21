@@ -15,14 +15,13 @@ import BodyBanner from './body_banner';
  * media, and linkdin.
  * 
  * Notes:
- * - Glob: https://www.npmjs.com/package/glob
  * - Reading Files: https://stackoverflow.com/questions/71540745/read-file-from-directory-reactjs
  * - React-markdown: https://www.npmjs.com/package/react-markdown
  * - Exact discussion on topic: https://stackoverflow.com/questions/69122134/how-to-display-markdown-files-in-nested-folders-in-next-js
  * 
- * @param {*} props 
+ * @param {Object} props 
  */
-function Body(props) {
+export default function PrimaryBody(props) {
     return (
         <Grid
             container
@@ -43,10 +42,8 @@ function Body(props) {
                 </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                <BodyBanner bannerContent={props.bannerContent} />
+                <BodyBanner resource={props.resource} />
             </Grid>
         </Grid>
     );
 }
-
-export default Body;

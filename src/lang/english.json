@@ -1,0 +1,90 @@
+{
+    "language": "english",
+    "footer-language-label": "Language",
+    "primary-title": "Ben's Dev Log",
+    "navigation": [
+        {
+            "title": "Home",
+            "url": "#"
+        },
+        {
+            "title": "Projects",
+            "url": "#/projects"
+        },
+        {
+            "title": "Tutorials",
+            "url": "#/tutorials"
+        },
+        {
+            "title": "Tools",
+            "url": "#/tools"
+        },
+        {
+            "title": "Search",
+            "url": "#/search"
+        },
+        {
+            "title": "Archive",
+            "url": "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing"
+        }
+    ],
+    "primary-banner-box1-title": "About Me",
+    "primary-banner-box1-content": "I am a jobless graduate from the University of Washington Bothell. I've been programming since high school in 2017 and I graduated in June 2022. I might have missed the cue of getting a job, but that won't stop me from programming. I'm making this blog to document my journey so far and for the future.",
+    "primary-banner-box2-title": "Contact Information",
+    "primary-banner-box2-content": [
+        {
+            "type": "email",
+            "value": "mailto:lin.benjamin1@gmail.com"
+        },
+        {
+            "type": "linkedin",
+            "value": "https://www.linkedin.com/in/benjamin-lin-a2574b174/"
+        },
+        {
+            "type": "github",
+            "value": "https://github.com/softpotato"
+        }
+    ],
+    "section-projects-title": "Projects",
+    "section-tutorials-title": "Tutorial",
+    "section-tools-title": "Tools",
+    "section-search-title": "Search",
+    "tag-modal-title": "Tag Select",
+    "tag-group-names": [
+        "Type",
+        "Tag",
+        "Programming Language",
+        "Publication Status",
+        "Language"
+    ],
+    "tag-modal-inclusion-and-or-label": "inclusion And/Or",
+    "tag-modal-exclusion-and-or-label": "exclusion And/Or",
+    "primary-post-title": "Primary Feed",
+    "primary-post-navigation": [
+        {
+            "title": "Home",
+            "url": "#"
+        },
+        {
+            "title": "Projects",
+            "url": "#/projects"
+        },
+        {
+            "title": "Tutorials",
+            "url": "#/tutorials"
+        },
+        {
+            "title": "Tools",
+            "url": "#/tools"
+        },
+        {
+            "title": "Search",
+            "url": "#/search"
+        },
+        {
+            "title": "Archive",
+            "url": "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing"
+        }
+    ],
+    "tag-menu-button": "Filter By"
+}

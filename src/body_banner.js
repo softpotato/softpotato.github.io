@@ -9,6 +9,8 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTheme } from '@mui/material/styles';
+import { SettingContext } from './app';
+import { useContext } from 'react';
 
 /**
  * Helper function to body. This genereates the long vertical side information 
@@ -17,26 +19,26 @@ import { useTheme } from '@mui/material/styles';
  * @param {*} props 
  * @returns 
  */
-export default function BodyBanner(props) {
-    const { bannerContent } = props;
+export default function BodyBanner() {
+    const {language} = useContext(SettingContext);
     const theme = useTheme();
 
     return <Grid container spacing={2}>
         <Grid item>
             <Paper sx={{ p: 2, bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.200' }}>
                 <Typography variant='h5'>
-                    {bannerContent.box1.title}
+                    {language['primary-banner-box1-title']}
                 </Typography>
                 <Typography variant='body2'>
-                    {bannerContent.box1.content}
+                    {language['primary-banner-box1-content']}
                 </Typography>
             </Paper>
         </Grid>
         <Grid item>
             <Typography variant='h5'>
-                {bannerContent.box2.title}
+                {language['primary-banner-box2-title']}
             </Typography>
-            {bannerContent.box2.contact.map((info, index) => {
+            {language['primary-banner-box2-content'].map((info, index) => {
                 switch (info.type) {
                     case 'email':
                         return <IconButton

@@ -1,13 +1,18 @@
 {
-    "created": "9-24-2022",
-    "updated": "10-13-2022",
-    "title": "Example Page Designs",
-    "description": "The text here is the main card text. This is a sample card layout",
+    "created": "11-16-2022",
+    "updated": "11-16-2022",
+    "title": "Test Post",
+    "description": "Another dummy one",
+    "type": "project",
     "tags": [
-        "test", "general-info"
+        "test", "nothing"
     ],
+    "status": "completed",
+    "programming_languages": [],
+    "language": "english",
     "splash_image": "",
-    "type": "tutorial",
+    "splash_image_alt": "nothing",
+    "perma-link": "b",
     "pages": [
         {
             "type": "header1",
@@ -63,7 +68,7 @@
                 },
                 {
                     "type": "code",
-                    "code": [
+                    "sections": [
                         {
                             "type": "python",
                             "content": "'''code boxes usually have multiple languages supported depending on the tutorial type. E.g. if you're working on Android, Java or Kotlin might be used. Showing for both is a good idea.'''\nx = 12\nprint(x)"

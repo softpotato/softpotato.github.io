@@ -1,0 +1,27 @@
+{
+    "created": "6-17-2019",
+    "updated": "8-18-2020",
+    "title": "A",
+    "description": "AAaa",
+    "type": "tutorial",
+    "tags": [
+        "test",
+        "A",
+        "Mankey"
+    ],
+    "status": "ongoing",
+    "programming_languages": [
+        "A"
+    ],
+    "language": "english",
+    "splash_image": "",
+    "splash_image_alt": "nothing",
+    "perma-link": "A",
+    "pages": [
+        {
+            "type": "A",
+            "content": "Poof. Poof. AAAAAAAAAAAAA",
+            "sections": []
+        }
+    ]
+}

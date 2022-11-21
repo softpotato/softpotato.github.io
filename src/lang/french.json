@@ -1,0 +1,90 @@
+{
+    "language": "french",
+    "footer-language-label": "Langue",
+    "primary-title": "Journal de développement de Ben",
+    "navigation": [
+        {
+            "title": "Maison",
+            "url": "#"
+        },
+        {
+            "title": "Projets",
+            "url": "#/projects"
+        },
+        {
+            "title": "Didacticiel",
+            "url": "#/tutorials"
+        },
+        {
+            "title": "Outil",
+            "url": "#/tools"
+        },
+        {
+            "title": "Chercher",
+            "url": "#/search"
+        },
+        {
+            "title": "Archiver",
+            "url": "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing"
+        }
+    ],
+    "primary-banner-box1-title": "À propos de moi",
+    "primary-banner-box1-content": "Je suis diplômé sans emploi de l’Université de Washington Bothell. Je fais de la programmation depuis le lycée en 2017 et j’ai obtenu mon diplôme en juin 2022. J’ai peut-être raté le signal de trouver un emploi, mais cela ne m’empêchera pas de programmer. Je fais ce blog pour documenter mon voyage jusqu’à présent et pour l’avenir. De plus, je ne peux pas parler Français. C’est traduit par Google.",
+    "primary-banner-box2-title": "Contact Information",
+    "primary-banner-box2-content": [
+        {
+            "type": "email",
+            "value": "mailto:lin.benjamin1@gmail.com"
+        },
+        {
+            "type": "linkedin",
+            "value": "https://www.linkedin.com/in/benjamin-lin-a2574b174/"
+        },
+        {
+            "type": "github",
+            "value": "https://github.com/softpotato"
+        }
+    ],
+    "section-projects-title": "Projets",
+    "section-tutorials-title": "Didacticiel",
+    "section-tools-title": "Outil",
+    "section-search-title": "Rechercher",
+    "tag-modal-title": "Sélection de balise",
+    "tag-group-names": [
+        "Type",
+        "étiquette",
+        "langage de programmation",
+        "statut de publication",
+        "Langue"
+    ],
+    "tag-inclusion-and-or-label": "inclusion Et/Ou",
+    "tag-exclusion-and-or-label": "exclusion Et/Ou",
+    "primary-post-title": "alimentation principale",
+    "primary-post-navigation": [
+        {
+            "title": "Maison",
+            "url": "#"
+        },
+        {
+            "title": "Projets",
+            "url": "#/projects"
+        },
+        {
+            "title": "Didacticiel",
+            "url": "#/tutorials"
+        },
+        {
+            "title": "Outil",
+            "url": "#/tools"
+        },
+        {
+            "title": "Chercher",
+            "url": "#/search"
+        },
+        {
+            "title": "Archiver",
+            "url": "https://drive.google.com/drive/folders/1e1ifnwfB8TFh9JHRVSFb-PAwlGJRdwm5?usp=sharing"
+        }
+    ],
+    "tag-menu-button": "Filtrer par"
+}

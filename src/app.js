@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Blog from "./blog";
+import React, { useState, useEffect, useMemo } from "react";
+import FrontPage from "./front_page";
 import Post from "./post";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
@@ -7,9 +7,18 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
-import EnhancedPost from "./enhanced_post";
+//import EnhancedPost from "./enhanced_post";
+import BlogStateManager from "./state/blog_state_manager";
+import ErrorPage from "./error_page";
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => { } })
+// Manual Language Pack Imports
+import English from './lang/english.json';
+import Emoji from './lang/emoji.json';
+import French from './lang/french.json';
+import SectionPage from "./section_page";
+
+// useContext resource https://beta.reactjs.org/apis/react/createContext
+export const SettingContext = React.createContext([null, null]); // passes down 2 callback functions
 
 // NOTE: There are 2 imports for posts. One is markdown and the other is json
 // files. JSON is for special posts such as project status and info, tutorials,
@@ -30,19 +39,40 @@ const markdownPostFiles = importAll(require.context('./posts', false, /\.md$/));
 // extra work.
 const jsonPosts = importAll(require.context('./posts', false, /\.json$/));
 
-export default function App(props) {
-    // This fields stores all primary posts
+// This is a reference to the class handling all state code. 
+const postStorageInterface = new BlogStateManager(jsonPosts);
+
+// The following code handles localization files. 
+
+// enum of languages
+export const LANGUAGES = {
+    ENGLISH: 'english',
+    EMOJI: 'emoji',
+    FRENCH: 'french'
+}
+
+// hash map to convert language key to actual JSON data set
+const languageMapping = {
+    'english': English,
+    'emoji': Emoji,
+    'french': French
+};
+
+export default function App() {
+    // This fields stores the front page posts. 
     const [primaryPosts, setPrimaryPosts] = useState([]);
 
-    // This field stores all sorted posts
-    const [projects, setProjects] = useState([]);
-    const [tutorials, setTutorials] = useState([]);
-    const [webtools, setWebtools] = useState([]);
-    // Note: The webtools json doesn't actually specify the code used.
-    // the code is accessible by all json files, it's just an easy way to
-    // easily way to format and organize web tools to include description
-    // and other stuff without manually creating it every time.
+    // The current language used by the webpage
+    const [language, setLanguage] = useState(languageMapping[LANGUAGES.ENGLISH]);
 
+    const changeLanguage = (newLang) => {
+        setLanguage(languageMapping[newLang]);
+    }
+
+    // Theme state
+    const [mode, setMode] = React.useState('dark');
+
+    const [tags, setTags] = React.useState([[], [], [], [], []]);
 
     // This function gets called on compilation
     useEffect(() => {
@@ -60,20 +90,36 @@ export default function App(props) {
         }
         fetchPostFiles();
 
+        async function fetchTags() {
+            const data = await postStorageInterface.getTags();
+            setTags(data);
+        }
+        fetchTags();
+
+        // This function retrieves all tag information and it is passed down
+        // to all children elements that have search functionality.
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // Theme state
-    const [mode, setMode] = React.useState('dark');
-    const colorMode = React.useMemo(
-        () => ({
-            toggleColorMode: () => {
-                setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-            }
-        }),
-        []
-    );
+    // I'm looking at this code a month or 2 later, and I've been scratching my head
+    // at what the fuck I wrote or copied and pasted. It looks like a lambda function
+    // but instead of calling code, it returns an object with a function.
+    //
+    // Looks stupid as fuck if I just wanted a callback function. No need to wrap it
+    // in a memo, since there is nothing being memoized. 
+    // const colorMode = React.useMemo(
+    //     () => ({
+    //         toggleColorMode: () => {
+    //             setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+    //         }
+    //     }),
+    //     []
+    // );
+
+    const toggleColorMode = () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+    };
 
     const theme = React.useMemo(
         () =>
@@ -85,27 +131,111 @@ export default function App(props) {
         [mode]
     );
 
+    /**
+    * Tab Layout
+    * ==========
+    * This array is used as the base template for generating the routes.
+    * However, included tags also need to include a paired piece of
+    * data, language. This is a small quality of life feature that will
+    * make users searching a little easier if we just assume that they're
+    * ONLY looking for stuff in their target language. 
+    * 
+    * However, we'll do this through the use of the hook useMemo. The
+    * reason we use useMemo over useEffect is because we ONLY need an
+    * output value of the sections rendered if the given language changes.
+    * useEffect works, but we'll need to create a useState or something
+    * in order to cascade the change into the DOM.
+    */
+    const sectionPages = useMemo(() => {
+        const sections = [
+            { key: "projects", includedTags: ["project"] },
+            { key: "tutorials", includedTags: ["tutorial"] },
+            { key: "tools", includedTags: ["tool"] },
+            { key: "search", includedTags: [] }
+        ];
+        return sections.map((entry) => {
+            const resourceKey = "section-" + entry.key + "-title";
+            return <Route
+                key={entry.key}
+                path={entry.key}
+                element={<SectionPage sectionKey={entry.key}
+                    title={resourceKey in language ? language[resourceKey] : entry.key}
+                    tags={tags}
+                    enforcedTags={[...entry.includedTags, language.language]}
+                    queryInterface={postStorageInterface} />}
+            />
+        })
+    }, [language, tags]);
+
+    /**
+     * This chunk of code generates the tag pages.
+     * This is similar to the sections pages, but
+     * this is specific for tags. These pages should
+     * also be language restricted (except for the 
+     * language tag). 
+     * 
+     * We'll use another useMemo again to generate
+     * all the pages.
+     */
+    const tagPages = useMemo(() => {
+        const outputTagPages = [];
+
+        // iterate over all tags but the last language tag groups
+        for (let i = 0; i < tags.length; i++) {
+
+            // iterate over the tags list and make pages
+            // Note: The ternary in enforcedTags handles language, since we shouldn't
+            //          have say a spanish selected tag get interfered with the default
+            //          set language (say english). 
+            // Also: The ternary in title is iffy, since tags aren't necessarily in the
+            //          translation files. If there is an alternate name, it'll retrieve it.
+            //          else, it uses it's default english name.
+            for (let j = 0; j < tags[i].length; j++) {
+                const tagName = tags[i][j];
+                outputTagPages.push(
+                    <Route
+                        key={tagName}
+                        path={tagName}
+                        element={<SectionPage
+                            sectionKey={tagName}
+                            title={tagName in language ? language[tagName] : tagName}
+                            tags={tags}
+                            enforcedTags={i !== tags.length - 1 ? [tagName, language.language] : [tagName]}
+                            queryInterface={postStorageInterface} />}
+                    />
+                );
+            }
+        }
+
+        return outputTagPages;
+    }, [tags, language]);
+
+
+    /**
+     * If you see this. It's attrocious. I agree.
+     * I might be overusing the useContext. Maybe I should 
+     */
     return (
-        <ColorModeContext.Provider value={colorMode}>
+        <SettingContext.Provider value={{ mode, toggleColorMode, language, changeLanguage }} >
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <HashRouter>
                     <Routes>
                         <Route path="/">
-                            <Route index element={<Blog posts={primaryPosts} />} />
-                            {primaryPosts.map((post) => {
-                                return <Route key={post[0]} path={"main_feed/" + post[0]} element={<Post post={post} />} />
+                            <Route path="*" element={<ErrorPage />} />
+                            <Route index element={<FrontPage pageID="front-page" posts={primaryPosts} />} />
+                            {primaryPosts.map((post) => { // Renders post links
+                                return <Route key={post[0]} path={"posts/" + post[0]} element={<Post post={post} />} />
                             })}
-                            {jsonPosts.map((post, key) => {
-                                return <Route key={key} path={"posts/" + key} element={<EnhancedPost content={post} />} />
-                            })}
+                            {sectionPages}
+                            {tagPages}
                         </Route>
                     </Routes>
                 </HashRouter>
-                <Fab size='medium' color='secondary' onClick={colorMode.toggleColorMode} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
+                <Fab size='medium' color='secondary' onClick={toggleColorMode} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
                     {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </Fab>
             </ThemeProvider>
-        </ColorModeContext.Provider>
+        </SettingContext.Provider>
     );
 }

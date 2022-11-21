@@ -3,11 +3,16 @@
     "updated": "10-13-2022",
     "title": "Example Page Designs",
     "description": "The text here is the main card text. This is a sample card layout",
-    "tags": [
-        "test", "general-info"
-    ],
-    "splash_image": "",
     "type": "tutorial",
+    "tags": [
+        "test", "general info"
+    ],
+    "status": "ongoing",
+    "programming_languages": ["JavaScript", "Python"],
+    "language": "english",
+    "splash_image": "",
+    "splash_image_alt": "nothing",
+    "perma-link": "a",
     "pages": [
         {
             "type": "header1",
@@ -63,7 +68,7 @@
                 },
                 {
                     "type": "code",
-                    "code": [
+                    "sections": [
                         {
                             "type": "python",
                             "content": "'''code boxes usually have multiple languages supported depending on the tutorial type. E.g. if you're working on Android, Java or Kotlin might be used. Showing for both is a good idea.'''\nx = 12\nprint(x)"

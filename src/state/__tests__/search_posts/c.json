@@ -1,0 +1,28 @@
+{
+    "created": "12-25-2021",
+    "updated": "12-26-2022",
+    "title": "C",
+    "description": "CCcc",
+    "type": "tutorial",
+    "tags": [
+        "test",
+        "C",
+        "Mankey"
+    ],
+    "status": "completed",
+    "programming_languages": [
+        "C",
+        "JavaScript"
+    ],
+    "language": "english",
+    "splash_image": "",
+    "splash_image_alt": "nothing",
+    "perma-link": "C",
+    "pages": [
+        {
+            "type": "header1",
+            "content": "Monster hunting monsters hahaha ha ha ha ha ha. Testing sentence. Poof.",
+            "sections": []
+        }
+    ]
+}
