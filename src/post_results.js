@@ -68,36 +68,28 @@ export default function PostResults({ pageID, posts, style }) {
      */
     const postDisplay = useMemo(() => {
         const postResultPageID = pageID + "-postLayout";
+
+        let cards = [];
         switch (style) {
             case LAYOUT.GRID:
-                const cozyPostJSX = [];
-
-                for (let i = 0; i < posts.length; i++) {
-                    const jsonData = posts[i];
-
-                    cozyPostJSX.push(<PreviewCardCozy pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />);
-                }
-
-                return <Grid container>
-                    {cozyPostJSX}
-                </Grid>
-            case LAYOUT.COMPRESSED:
-                const compressedPostJSX = posts.map((jsonData) => {
-                    return <PreviewCardCompressed pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
-                });
-
-                return <Grid container>
-                    {compressedPostJSX}
-                </Grid>
-            default:
-                const youTypedSomethingWrongJSX = posts.map((jsonData) => {
+                cards = posts.map((jsonData) => {
                     return <PreviewCardCozy pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
                 });
-
-                return <Grid container>
-                    {youTypedSomethingWrongJSX}
-                </Grid>
+                break;
+            case LAYOUT.COMPRESSED:
+                cards = posts.map((jsonData) => {
+                    return <PreviewCardCompressed pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
+                });
+                break;
+            default:
+                cards = posts.map((jsonData) => {
+                    return <PreviewCardCozy pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
+                });
         }
+
+        return <Grid container spacing={2} sx={{ pr: {xs: 1, sm: 1, md: 2, lg: 4}, pl: {xs: 1, sm: 1, md: 2, lg: 4} }}>
+            {cards}
+        </Grid>
     }, [posts, style, pageID])
 
     return <Fragment>

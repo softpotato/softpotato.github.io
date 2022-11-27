@@ -1,11 +1,14 @@
-# Weird Note
+# Extension About
 
-The stuff in this folder is not content, but webpage render stuff.
-Like say you wanted a progress bar added into the content of the
-webpage. Say you wanted some tool. This is sort of that stuff
-related to the webpage, but not necessarily necessary for the
-webpage to function. If you see anything in this folder, feel
-free to disregard or copy it. I don't care. I'm mostly adding
-an extension so I can render a webpage with the tool to display
-matrices from leetcode. I'm super frustrated with looking at
-text display of matrices. 
+Extensions are more code heavy components of a post. 
+I separated these because they're more of the heavy
+lifter for a post listed in the "tools" section. These
+posts require heavy amounts of state management which
+would be super tedious and difficult to program in
+solely through JSON specifications. It's possible, but
+who the fuck would spend the time to learn and do
+that with their posts. 
+
+Anyways, I'll add stuff to here another time. There will
+be an function that you need to register your extensions
+here with.

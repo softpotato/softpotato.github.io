@@ -17,7 +17,7 @@ import style from './markdown-styles.module.css';
 export default function PreviewCard(props) {
     const {post, subfolder} = props;
 
-    return (<Card>
+    return (<Card elevation={4}>
         <CardContent>
             <ReactMarkdown
                 children={post[1].split('\n',15).join('\n') + "..."}

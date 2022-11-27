@@ -125,7 +125,6 @@ export default function AdvancedTagMenu({ pageID, tags, toggleTag, inclusionAnd,
             open={open}
             onClose={handleClose}
             aria-labelledby={tagMenuID + "-modal_title"}
-            aria-description="modal menu of all tags in the current search page"
         >
             <Box sx={style}>
                 <Typography key={tagMenuID + "-modal_title"} id={tagMenuID + "-modal_title"} component="h1">

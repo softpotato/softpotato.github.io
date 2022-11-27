@@ -1,0 +1,88 @@
+{
+    "created": "11-27-2022",
+    "updated": "11-27-2022",
+    "title": "About Me",
+    "description": "General information about me. It guess it covers some broad details into who, what, and why I am and what I'm doing.",
+    "type": "other",
+    "tags": [
+        "general"
+    ],
+    "status": "ongoing",
+    "programming_languages": [],
+    "language": "english",
+    "splash_image": "",
+    "splash_image_alt": "nothing",
+    "perma-link": "c",
+    "pages": [
+        {
+            "type": "h2",
+            "content": "About Me",
+            "sections": [
+                {
+                    "type": "body1",
+                    "content": "I am Ben."
+                },
+                {
+                    "type": "body1",
+                    "content": "I like dogs."
+                },
+                {
+                    "type": "body1",
+                    "content": "I like physics based side scrolling platformers with in game level makers."
+                },
+                {
+                    "type": "body1",
+                    "content": "I have some bad anxiety."
+                },
+                {
+                    "type": "body1",
+                    "content": "I tend to fumble the words that I use."
+                },
+                {
+                    "type": "body1",
+                    "content": "Sorry in advance."
+                },
+                {
+                    "type": "body1",
+                    "content": "I tend to over think."
+                },
+                {
+                    "type": "body1",
+                    "content": "If you make me write an email, expect it at 2am and 5 paragraphs long."
+                },
+                {
+                    "type": "body1",
+                    "content": "I'll make it 5 paragraphs long even for a greeting."
+                },
+                {
+                    "type": "body1",
+                    "content": "I like programming."
+                },
+                {
+                    "type": "body1",
+                    "content": "I'm very flexible in what language I use."
+                },
+                {
+                    "type": "body1",
+                    "content": "I honestly don't care what language I use, but at the same time."
+                },
+                {
+                    "type": "body1",
+                    "content": "I have a hard time remembering different language syntax."
+                },
+                {
+                    "type": "body1",
+                    "content": "I'll very likely forget how to initialize a class."
+                },
+                {
+                    "type": "body1",
+                    "content": "I've gone through 2 interviews so far who refused to let be see how to initialize a class."
+                },
+                {
+                    "type": "body1",
+                    "content": "My long term memory suffers a lot when I'm under pressure."
+                }
+            ]
+        }
+    ]
+}

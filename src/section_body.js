@@ -12,6 +12,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
 
 
 /**
@@ -526,26 +527,47 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
     }, [searchBar, ascending, convertedTags, exclusionAnd, inclusionAnd, searchInterface, sortBy]);
 
     return <Paper>
-        <TextField value={searchBar} onChange={onSearchBarChange} />
-        <Select value={selectValues} onChange={onSortTypeChange}>
-            <MenuItem value={"bm"}>Best Match</MenuItem>
-            <MenuItem value={"ta"}>Title (a-z)</MenuItem>
-            <MenuItem value={"td"}>Title (z-a)</MenuItem>
-            <MenuItem value={"lpa"}>Latest Posts</MenuItem>
-            <MenuItem value={"opd"}>Oldest Posts</MenuItem>
-            <MenuItem value={"lua"}>Latest Updates</MenuItem>
-            <MenuItem value={"oud"}>Oldest Updates</MenuItem>
-        </Select>
-        <ButtonGroup>
-            <IconButton aria-label="compact" disabled={LAYOUT.COMPRESSED === postLayout} onClick={togglePostLayoutToCompressed}>
-                <TableRowsIcon />
-            </IconButton>
-            <IconButton aria-label="cozy" disabled={LAYOUT.GRID === postLayout} onClick={togglePostLayoutToGrid}>
-                <ViewModuleIcon />
-            </IconButton>
-        </ButtonGroup>
-        <AdvancedTagMenu pageID={sectionID} modalName={modalName} sectionNames={sectionNames} tags={convertedTags} toggleTag={toggleTag} inclusionAnd={inclusionAnd} exclusionAnd={exclusionAnd} toggleInclusionAnd={toggleInclusionAnd} toggleExclusionAnd={toggleExclusionAnd} inclusionAndOrLabel={inclusionAndOrLabel} exclusionAndOrLabel={exclusionAndOrLabel} />
-        <TagScroll pageID={sectionID} inclusionHead={inclusionHead} exclusionHead={exclusionHead} toggleTag={toggleTag} removeTag={removeTag} />
+        <Box sx={{ display: 'flex', flexDirection: "column", padding: "1rem" }}>
+            <Box sx={{ display: 'flex', flexDirection: "row" }}>
+                <TextField value={searchBar} onChange={onSearchBarChange} sx={{ flexGrow: "1" }} />
+                <Select value={selectValues} onChange={onSortTypeChange} sx={{ flexShrink: "1" }}>
+                    <MenuItem value={"bm"}>Best Match</MenuItem>
+                    <MenuItem value={"ta"}>Title (a-z)</MenuItem>
+                    <MenuItem value={"td"}>Title (z-a)</MenuItem>
+                    <MenuItem value={"lpa"}>Latest Posts</MenuItem>
+                    <MenuItem value={"opd"}>Oldest Posts</MenuItem>
+                    <MenuItem value={"lua"}>Latest Updates</MenuItem>
+                    <MenuItem value={"oud"}>Oldest Updates</MenuItem>
+                </Select>
+                <AdvancedTagMenu
+                    pageID={sectionID}
+                    modalName={modalName}
+                    sectionNames={sectionNames}
+                    tags={convertedTags}
+                    toggleTag={toggleTag}
+                    inclusionAnd={inclusionAnd}
+                    exclusionAnd={exclusionAnd}
+                    toggleInclusionAnd={toggleInclusionAnd}
+                    toggleExclusionAnd={toggleExclusionAnd}
+                    inclusionAndOrLabel={inclusionAndOrLabel}
+                    exclusionAndOrLabel={exclusionAndOrLabel}
+                    sx={{ flexShrink: 1 }}
+                />
+            </Box>
+            <Box sx={{ display: 'flex', flexDirection: "row", pt: "1rem" }}>
+                <Box sx={{ flexGrow: "1" }}>
+                    <TagScroll pageID={sectionID} inclusionHead={inclusionHead} exclusionHead={exclusionHead} toggleTag={toggleTag} removeTag={removeTag} />
+                </Box>
+                <ButtonGroup sx={{ flexShrink: "1" }}>
+                    <IconButton aria-label="compact" disabled={LAYOUT.COMPRESSED === postLayout} onClick={togglePostLayoutToCompressed}>
+                        <TableRowsIcon />
+                    </IconButton>
+                    <IconButton aria-label="cozy" disabled={LAYOUT.GRID === postLayout} onClick={togglePostLayoutToGrid}>
+                        <ViewModuleIcon />
+                    </IconButton>
+                </ButtonGroup>
+            </Box>
+        </Box>
         <PostResults pageID={sectionID} posts={posts} style={postLayout} />
     </Paper>
 }

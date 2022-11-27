@@ -2,9 +2,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import FrontPage from "./front_page";
 import Post from "./post";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Fab from '@mui/material/Fab';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import BlogStateManager from "./state/blog_state_manager";
@@ -245,9 +242,6 @@ export default function App() {
                         </Route>
                     </Routes>
                 </HashRouter>
-                <Fab size='medium' color='secondary' onClick={toggleColorMode} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
-                    {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-                </Fab>
             </ThemeProvider>
         </SettingContext.Provider>
     );

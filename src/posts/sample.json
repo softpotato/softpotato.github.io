@@ -5,7 +5,8 @@
     "description": "The text here is the main card text. This is a sample card layout",
     "type": "tutorial",
     "tags": [
-        "test", "general info"
+        "test",
+        "general"
     ],
     "status": "ongoing",
     "programming_languages": ["JavaScript", "Python"],
@@ -15,37 +16,37 @@
     "perma-link": "a",
     "pages": [
         {
-            "type": "header1",
+            "type": "h2",
             "content": "Webpage JSON Content Tutorial",
             "sections": [
                 {
-                    "type": "paragraph-note",
+                    "type": "subtitle1",
                     "content": "This text gets rendered directly under header."
                 },
                 {
-                    "type": "paragraph",
+                    "type": "body1",
                     "content": "Due to the unique structure of blogs and other content, I've decided to alter the storage method for the blog. Markdown files don't provide enough formatting information in order to render the content, so I'm switching to using JSON files. The only downside is that I can't seem to press enter on these lines, and I'll need to create custom content formatting functions for rendering the content properly. This structure introduces a lot more sources of error, but it should be worth it for what I'm about to do to add the additional UI features I wanted."
                 },
                 {
-                    "type": "paragraph",
+                    "type": "body2",
                     "content": "These JSON posts are not like the main feed's posts, where it's general updates and other things like that. These are for sorted information such as tutorials, projects, and even web tools. These posts usually require a higher level of control that is limited by using solely react-markdown, like side bar navigation and such. I will also be adopting a similar tutorial format like Google's tutorial pages for Android development."
                 },
                 {
-                    "type": "paragraph",
+                    "type": "body1",
                     "content": "The next page will feature all the unique content that you can potentially create if you're forking my source code for some reason. Personally, I'm doing this so I remember what I need to make or what is already added, cause my memory sucks. Like my brain sucks. Seriously, forgetting how to for loop in Python during a coding interview sucks."
                 }
             ]
         },
         {
-            "type": "header1",
+            "type": "h2",
             "content": "Content Examples",
             "sections": [
                 {
-                    "type": "paragraph",
+                    "type": "body1",
                     "content": "This is a paragraph. These are used to render the bulk of the webpage. These paragraphs use react-markdown to render and format, so feel free to add latex or markdown here."
                 },
                 {
-                    "type": "header2",
+                    "type": "h2",
                     "content": "Header 2 title header"
                 },
                 {
@@ -53,11 +54,11 @@
                     "content": "dropdown container",
                     "sections": [
                         {
-                            "type": "paragraph",
+                            "type": "body2",
                             "content": "drop down containers contain extra unreleated information that is useful to be shrunk or expanded. Usually for notes. I might make one for organizing tutorials, but I like Google's page style instead, so I'm following that method."
                         },
                         {
-                            "type": "paragraph",
+                            "type": "body2",
                             "content": "Anyways, the content in these dropdown containers render all the content in the sections field in the JSON file."
                         }
                     ]
@@ -81,7 +82,6 @@
                 },
                 {
                     "type": "progress-bar",
-                    "style": "default",
                     "value": 25
                 },
                 {
@@ -95,7 +95,8 @@
                     "content": "to_figure_out"
                 },
                 {
-                    "type": "warning",
+                    "type": "notice",
+                    "severity": "info",
                     "content": "This is a warning sign. These are used for things to look out for when following a tutorial or such."
                 }
             ]

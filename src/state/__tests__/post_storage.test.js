@@ -1,7 +1,3 @@
-test("dummy", () => {
-    expect(1).toBe(1);
-});
-
 /**
  * This test checks that the PostStorage class works properly.
  * It doesn't have perfect coverage. I'm mostly using this to
@@ -27,87 +23,87 @@ import PostStorage from "../post_storage";
 import SearchInput from "../search_input";
 
 // Data Generation Method
-const sortByPool = [
-    ["bestMatch", true],
-    ["bestMatch", false],
-    ["title", true],
-    ["title", false],
-    ["datePosted", true],
-    ["datePosted", false],
-    ["lastEdited", true],
-    ["lastEdited", false],
-    ["error", true]
-];
+// const sortByPool = [
+//     ["bestMatch", true],
+//     ["bestMatch", false],
+//     ["title", true],
+//     ["title", false],
+//     ["datePosted", true],
+//     ["datePosted", false],
+//     ["lastEdited", true],
+//     ["lastEdited", false],
+//     ["error", true]
+// ];
 
-const tagPool = [
-    ["tutorial", "project", "tool", "game", "other"],
-    ["intro", "advanced", "react.js", "redux", "flux", "konvas", "front end", "back end", "full stack", "data science", "object oriented programming", "fundamentals", "referesher", "guide", "theory", "proof", "keras", "tensorflow", "audio steganography"],
-    ["none", "javascript", "c++", "c", "c#", "java", "matlab", "r", "python"],
-    ["ongoing", "completed", "not started", "cancelled", "hiatus"],
-    ["english", "japanese", "mandarin", "french", "korean", "spanish", "portugese", "klingon", "galactic basic"]
-];
+// const tagPool = [
+//     ["tutorial", "project", "tool", "game", "other"],
+//     ["intro", "advanced", "react.js", "redux", "flux", "konvas", "front end", "back end", "full stack", "data science", "object oriented programming", "fundamentals", "referesher", "guide", "theory", "proof", "keras", "tensorflow", "audio steganography"],
+//     ["none", "javascript", "c++", "c", "c#", "java", "matlab", "r", "python"],
+//     ["ongoing", "completed", "not started", "cancelled", "hiatus"],
+//     ["english", "japanese", "mandarin", "french", "korean", "spanish", "portugese", "klingon", "galactic basic"]
+// ];
 
 // e.g. max = 3 results in 0, 1, and 2.
 // citation: https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/math/random
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
+// function getRandomInt(max) {
+//     return Math.floor(Math.random() * max);
+// }
 
 /**
  * This function generates a custom search query.
  */
-function generateSearchQuery() {
-    const rSortBy = sortByPool[getRandomInt(sortByPool.length)];
+// function generateSearchQuery() {
+//     const rSortBy = sortByPool[getRandomInt(sortByPool.length)];
 
-    const tags = [[], [], [], [], []];
-    tags[0].push(tagPool[0][getRandomInt(tagPool[0].length)]);
-    for (let i = 1; i < 3; i++) {
-        const currRow = tags[i];
+//     const tags = [[], [], [], [], []];
+//     tags[0].push(tagPool[0][getRandomInt(tagPool[0].length)]);
+//     for (let i = 1; i < 3; i++) {
+//         const currRow = tags[i];
 
-        const numberToGet = getRandomInt(5);
-        const currentTagsList = new Set();
+//         const numberToGet = getRandomInt(5);
+//         const currentTagsList = new Set();
 
-        for (let j = 0; j < numberToGet; j++) {
-            const currEntry = getRandomInt(currRow.length);
+//         for (let j = 0; j < numberToGet; j++) {
+//             const currEntry = getRandomInt(currRow.length);
 
-            if (!currentTagsList.has(currentTagsList[currEntry])) {
-                currentTagsList.add(currentTagsList[currEntry]);
-                currRow.push(currentTagsList[currEntry]);
-            }
-        }
-    }
-    tags[3].push(tagPool[3][getRandomInt(tagPool[3].length)]);
-    tags[4].push(tagPool[4][getRandomInt(tagPool[4].length)]);
+//             if (!currentTagsList.has(currentTagsList[currEntry])) {
+//                 currentTagsList.add(currentTagsList[currEntry]);
+//                 currRow.push(currentTagsList[currEntry]);
+//             }
+//         }
+//     }
+//     tags[3].push(tagPool[3][getRandomInt(tagPool[3].length)]);
+//     tags[4].push(tagPool[4][getRandomInt(tagPool[4].length)]);
 
-    return new SearchInput("", rSortBy[0], rSortBy[1], tags)
-};
+//     return new SearchInput("", rSortBy[0], rSortBy[1], tags)
+// };
 
 /**
  * This function generates a random post.
  */
-function generatePost() {
+// function generatePost() {
 
-    const tags = [[], [], [], [], []];
-    tags[0].push(tagPool[0][getRandomInt(tagPool[0].length)]);
-    for (let i = 1; i < 3; i++) {
-        const currRow = tags[i];
+//     const tags = [[], [], [], [], []];
+//     tags[0].push(tagPool[0][getRandomInt(tagPool[0].length)]);
+//     for (let i = 1; i < 3; i++) {
+//         const currRow = tags[i];
 
-        const numberToGet = getRandomInt(5);
-        const currentTagsList = new Set();
+//         const numberToGet = getRandomInt(5);
+//         const currentTagsList = new Set();
 
-        for (let j = 0; j < numberToGet; j++) {
-            const currEntry = getRandomInt(currRow.length);
+//         for (let j = 0; j < numberToGet; j++) {
+//             const currEntry = getRandomInt(currRow.length);
 
-            if (!currentTagsList.has(currentTagsList[currEntry])) {
-                currentTagsList.add(currentTagsList[currEntry]);
-                currRow.push(currentTagsList[currEntry]);
-            }
-        }
-    }
-    tags[3].push(tagPool[3][getRandomInt(tagPool[3].length)]);
-    tags[4].push(tagPool[4][getRandomInt(tagPool[4].length)]);
+//             if (!currentTagsList.has(currentTagsList[currEntry])) {
+//                 currentTagsList.add(currentTagsList[currEntry]);
+//                 currRow.push(currentTagsList[currEntry]);
+//             }
+//         }
+//     }
+//     tags[3].push(tagPool[3][getRandomInt(tagPool[3].length)]);
+//     tags[4].push(tagPool[4][getRandomInt(tagPool[4].length)]);
 
-};
+// };
 
 function convertPostJSONToTitleArray(data) {
     const output = [];

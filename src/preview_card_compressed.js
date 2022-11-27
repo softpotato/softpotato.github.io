@@ -70,7 +70,7 @@ export default function PreviewCardCompressed({ pageID, data }) {
 
     }, [data]);
 
-    return <Grid item key={"card-compressed-" + data["perma-link"]}>
+    return <Grid item xs={12} sm={12} md={12} lg={12}>
         <Card sx={{ display: 'flex' }}>
             <CardActionArea href={"#/posts/" + data["perma-link"]}>
                 {data["splash_image"] !== "" &&
@@ -78,6 +78,7 @@ export default function PreviewCardCompressed({ pageID, data }) {
                         component="img"
                         image={data["splash_image"]}
                         alt={data["splash_image_alt"]}
+                        height={100}
                     />
                 }
                 <CardContent>

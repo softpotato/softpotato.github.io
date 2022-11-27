@@ -4,11 +4,11 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { SettingContext } from './app';
-import Switch from '@mui/material/Switch';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import { LANGUAGES } from './app';
 import MenuItem from '@mui/material/MenuItem';
+import ThemeSwitch from './theme_switch';
 
 /**
  * 
@@ -28,7 +28,7 @@ import MenuItem from '@mui/material/MenuItem';
  * even have any cash to do so.
  */
 function Footer({ pageID }) {
-    const { mode, toggleColorMode, language, changeLanguage } = useContext(SettingContext);
+    const { language, changeLanguage } = useContext(SettingContext);
 
     const handleChange = (event) => {
         changeLanguage(event.target.value);
@@ -47,7 +47,8 @@ function Footer({ pageID }) {
                 {new Date().getFullYear()}
                 {'.'}
             </Typography>
-            <Switch checked={mode === 'light'} onChange={toggleColorMode} inputProps={{ 'aria-label': 'controlled' }} />
+            <ThemeSwitch />
+            {/* <Switch checked={mode === 'light'} onChange={toggleColorMode} inputProps={{ 'aria-label': 'controlled' }} /> */}
             <InputLabel id={pageID + "-footer-select-label"}>{language["footer-language-label"]}</InputLabel>
             <Select
                 labelId={pageID + "-footer-select-label"}

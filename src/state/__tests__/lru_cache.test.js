@@ -1,12 +1,12 @@
 import LRUCache from '../lru_cache';
 import LRUKey from '../lru_key';
 
-test("empty LRU Creation", () => {
-    const store1 = new LRUCache(0);
-    const store2 = new LRUCache(1);
-    const store3 = new LRUCache(20);
-    const store4 = new LRUCache(100);
-});
+// test("empty LRU Creation", () => {
+//     const store1 = new LRUCache(0);
+//     const store2 = new LRUCache(1);
+//     const store3 = new LRUCache(20);
+//     const store4 = new LRUCache(100);
+// });
 
 test("LRU 1 Entry Insertion", () => {
     const store1 = new LRUCache(1);

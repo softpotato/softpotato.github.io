@@ -3,8 +3,8 @@
  * children of the LRU Key class.
  */
 import CategoryGroup from "../category_group";
-import SearchInput from "../search_input";
-import {unorderedArrayStringHash, orderedArrayStringHash} from "../utils";
+// import SearchInput from "../search_input";
+// import {unorderedArrayStringHash, orderedArrayStringHash} from "../utils";
 
 test("category group hash code test", () => {
     const code1 = new CategoryGroup([[],[],[],[],[]], true, [[],[],[],[],[]], false);
