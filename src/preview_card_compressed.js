@@ -71,19 +71,20 @@ export default function PreviewCardCompressed({ pageID, data }) {
     }, [data]);
 
     return <Grid item xs={12} sm={12} md={12} lg={12}>
-        <Card sx={{ display: 'flex' }}>
-            <CardActionArea href={"#/posts/" + data["perma-link"]}>
+        <Card sx={{ display: 'flex', flexDirection: "row" }}>
+            <CardActionArea href={"#/posts/" + data["perma-link"]} sx={{ display: 'flex', flexDirection: "row" }}>
                 {data["splash_image"] !== "" &&
                     <CardMedia
                         component="img"
                         image={data["splash_image"]}
                         alt={data["splash_image_alt"]}
-                        height={100}
+                        height={150}
+                        width={150}
                     />
                 }
                 <CardContent>
-                    <Typography>{data["title"]}</Typography>
-                    <Typography>{data["description"]}</Typography>
+                    <Typography variant="h6">{data["title"]}</Typography>
+                    <Typography variant="subtitle2">{data["description"]}</Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>

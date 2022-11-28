@@ -26,13 +26,14 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 export default function ThemeSwitch() {
     const { mode, toggleColorMode, language } = useContext(SettingContext);
 
-    return <FormControlLabel control={<Switch
-        checked={mode === 'light'}
-        onChange={toggleColorMode}
-        inputProps={{ 'aria-label': 'controlled' }}
-        sx={{
-
-        }} />}
+    return <FormControlLabel
+        control={
+            <Switch
+                checked={mode === 'light'}
+                onChange={toggleColorMode}
+                inputProps={{ 'aria-label': 'controlled' }}
+            />
+        }
         label={language["theme"]}
     />
 }

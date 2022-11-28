@@ -61,7 +61,7 @@ import { useState, useEffect } from "react";
  * @returns 
  */
 export default function PreviewCardCozy({ pageID, data }) {
-    const previewCardPageID = pageID +  "-previewCard";
+    const previewCardPageID = pageID + "-previewCard";
 
     const [tags, setTags] = useState([]);
     const [hyperlinks, setHyperlinks] = useState([]);
@@ -106,11 +106,17 @@ export default function PreviewCardCozy({ pageID, data }) {
                         component="img"
                         image={data["splash_image"]}
                         alt={data["splash_image_alt"]}
+                        height={150}
+                        width={150}
                     />
                 }
                 <CardContent>
-                    <Typography>{data["title"]}</Typography>
-                    <Typography>{data["description"]}</Typography>
+                    <Typography variant="h6">{data["title"]}</Typography>
+                    {data["description"].length < 100 ?
+                        <Typography variant="subtitle2">{data["description"]}</Typography>
+                        :
+                        <Typography variant="subtitle2">{data["description"].substring(0,100) + "..."}</Typography>
+                    }
                 </CardContent>
             </CardActionArea>
             <CardActions>

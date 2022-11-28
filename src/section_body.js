@@ -526,7 +526,7 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
         return () => clearTimeout(delayDebounceFn);
     }, [searchBar, ascending, convertedTags, exclusionAnd, inclusionAnd, searchInterface, sortBy]);
 
-    return <Paper>
+    return <Paper elevation={8} sx={{ padding: "1rem", mb: "1rem", mt: "1rem" }}>
         <Box sx={{ display: 'flex', flexDirection: "column", padding: "1rem" }}>
             <Box sx={{ display: 'flex', flexDirection: "row" }}>
                 <TextField value={searchBar} onChange={onSearchBarChange} sx={{ flexGrow: "1" }} />

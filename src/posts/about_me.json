@@ -16,71 +16,107 @@
     "pages": [
         {
             "type": "h2",
-            "content": "About Me",
+            "content": "Employment History",
             "sections": [
                 {
                     "type": "body1",
-                    "content": "I am Ben."
+                    "content": "None."
+                }
+            ]
+        },
+        {
+            "type": "h2",
+            "content": "Education",
+            "sections": [
+                {
+                    "type": "body1",
+                    "content": "Graduated from the University of Washington Bothell in June 2022 with a double major in Computer Science and Mathematics."
                 },
                 {
                     "type": "body1",
-                    "content": "I like dogs."
+                    "content": "Unemployed since."
+                }
+            ]
+        },
+        {
+            "type": "h2",
+            "content": "Programming Languages",
+            "sections": [
+                {
+                    "type": "body1",
+                    "content": "This section ranks the programming languages I'm familar with on a scale of 1 to 5. 1 Being I can use it, but don't expect me to have any keywords or style memorized. 5 being okayish intermediate if you give me an hour to cram before the interview. 3 is if I was really good at it, but i forgot a few of the major classes and keyword names or that Python is messing up my syntax. 0 is if there are some road blocks to me learning it, but an attempt has been made."
+                },
+                {
+                    "type": "h4",
+                    "content": "Java - 3"
                 },
                 {
                     "type": "body1",
-                    "content": "I like physics based side scrolling platformers with in game level makers."
+                    "content": "I used it in high school and first year of college, so about 2 years, but there is a large gap afterwards till my distributed computing class."
+                },
+                {
+                    "type": "h4",
+                    "content": "JavaScript - 4"
                 },
                 {
                     "type": "body1",
-                    "content": "I have some bad anxiety."
+                    "content": "I don't train in this language for interviews, but if you want me to make a webpage I'm confident in it. I just need to refresh myself once in a while on keywords and class names."
+                },
+                {
+                    "type": "h4",
+                    "content": "Python - 5"
                 },
                 {
                     "type": "body1",
-                    "content": "I tend to fumble the words that I use."
+                    "content": "I practice leetcode in this language, but not creating classes."
+                },
+                {
+                    "type": "h4",
+                    "content": "MATLAB - 3"
                 },
                 {
                     "type": "body1",
-                    "content": "Sorry in advance."
+                    "content": "Used it for a signal computing class and numerical anaylysis class series. I'm confident in it, but I'll need to see some code before I have to use it again."
+                },
+                {
+                    "type": "h4",
+                    "content": "R - 1"
                 },
                 {
                     "type": "body1",
-                    "content": "I tend to over think."
+                    "content": "Used this for a statistics class. Learned nothing from it. Can use it, but I'm pretty useless at this language."
+                },
+                {
+                    "type": "h4",
+                    "content": "C++ - 3"
                 },
                 {
                     "type": "body1",
-                    "content": "If you make me write an email, expect it at 2am and 5 paragraphs long."
+                    "content": "I love the idea of the language, hate the project setup and compiling process. It sucks. Used this for data structures and algorithm for a year in college. Hasn't touched it since."
+                },
+                {
+                    "type": "h4",
+                    "content": "C# - 2"
                 },
                 {
                     "type": "body1",
-                    "content": "I'll make it 5 paragraphs long even for a greeting."
+                    "content": "I use this for Unity and ONLY Unity. I guess maybe some for the windows UWP app, but I only use the bare minimum. It's very similar to Java."
+                },
+                {
+                    "type": "h4",
+                    "content": "Typescript - 0"
                 },
                 {
                     "type": "body1",
-                    "content": "I like programming."
+                    "content": "Tried to convert this page, but AAAAaaahahhhfhafipdsifo... It don't work to well with the requireAll."
+                },
+                {
+                    "type": "h4",
+                    "content": "Kotlin - 0"
                 },
                 {
                     "type": "body1",
-                    "content": "I'm very flexible in what language I use."
-                },
-                {
-                    "type": "body1",
-                    "content": "I honestly don't care what language I use, but at the same time."
-                },
-                {
-                    "type": "body1",
-                    "content": "I have a hard time remembering different language syntax."
-                },
-                {
-                    "type": "body1",
-                    "content": "I'll very likely forget how to initialize a class."
-                },
-                {
-                    "type": "body1",
-                    "content": "I've gone through 2 interviews so far who refused to let be see how to initialize a class."
-                },
-                {
-                    "type": "body1",
-                    "content": "My long term memory suffers a lot when I'm under pressure."
+                    "content": "Currently in progress of learning it. Or maybe not. Not sure if I'll make my bookmarks app."
                 }
             ]
         }

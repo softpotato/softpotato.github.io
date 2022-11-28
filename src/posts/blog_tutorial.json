@@ -1,13 +1,16 @@
 {
     "created": "11-26-2022",
-    "updated": "11-26-2022",
+    "updated": "11-27-2022",
     "title": "Blog Tutorial ",
-    "description": "A tutorial for creating this blog",
+    "description": "This is a tutorial for creating this blog from scratch. This tutorial primarily focuses solely on front end webpage development and can be used as an introduction into React and hooks. There are 2 main stages to this tutorial. It starts with a simple markdown rendering webpage, then evolves it into a JSON based content rendering webpage.",
     "type": "tutorial",
     "tags": [
         "blog",
         "react",
-        "intro"
+        "intro",
+        "searchbar",
+        "markdown",
+        "Unit Testing"
     ],
     "status": "ongoing",
     "programming_languages": ["JavaScript"],
@@ -17,8 +20,56 @@
     "perma-link": "d",
     "pages": [
         {
-            "type": "h2",
-            "content": "Potato"
+            "type": "h3",
+            "content": "Technology Overview",
+            "sections": [
+                {
+                    "type": "body1",
+                    "content": "This page contains the list of technologies we'll use in this project. We'll install the following technology in the following pages."
+                },
+                {
+                    "type": "markdown",
+                    "content": "- **JavaScript** - a programming language\n- **React.js** - A UI library made by Facebook intended to be used to make webpage UIs. [LINK](https://reactjs.org/)\n- **Material UI.js** - An open source javascript library containing a bunch of web components stylized after Google's Material theory. [LINK](https://mui.com/)\n- **gh-pages.js** - A react library for converting a react webpage for GitHub. [LINK](https://www.npmjs.com/package/gh-pages)\n- **Node.js** - A JavaScript runtime environment. [LINK](https://nodejs.org/en/)\n- **Node Package Manager (NPM)** - part of Node.js, but it manages the packages used in the project.\n- **Webpack** - A code bundler or something. Merges all code together. Also installed with Node.js.\n- **Babel.js** - A JavaScript converter to allow more JavaScript functions. Also part of Node.js."
+                },
+                {
+                    "type": "body1",
+                    "content": "There are a few other additional side package libraries that we'll use, but they aren't essential for the whole design of the webpage or making sure it works. These are primarily for stylistic choices, though optional. I recommend them all. "
+                },
+                {
+                    "type": "markdown",
+                    "content": "- **react-syntax-highlighter** - used for styling code like an IDE\n- **react-markdown** - used for parsing text into markdown\n- **rehype-katex** - styles for Latex\n- **remark-math** - extensions for Latex in Markdown"
+                }
+            ]
+        },
+        {
+            "type": "h3",
+            "content": "Installing Packages",
+            "sections": [
+                {
+                    "type": "body1",
+                    "content": "This page covers installing and preparing the environment and packages we'll use. "
+                },
+                {
+                    "type": "h5",
+                    "content": "Installing Node.js"
+                },
+                {
+                    "type": "body1",
+                    "content": "Do I really need to tell you how to do it? Just go to their webpage and download it. Here, I even provided a link to it."
+                },
+                {
+                    "type": "markdown",
+                    "content": "LINK: [https://nodejs.org/en/](https://nodejs.org/en/)"
+                },
+                {
+                    "type": "h5",
+                    "content": "Choosing an IDE"
+                },
+                {
+                    "type": "body1",
+                    "content": "I'm feeling lazy at the moment. I'll continue this another time."
+                }
+            ]
         }
     ]
 }

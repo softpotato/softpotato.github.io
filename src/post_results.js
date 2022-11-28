@@ -3,6 +3,7 @@ import { useMemo, Fragment } from 'react';
 import PreviewCardCompressed from './preview_card_compressed';
 import PreviewCardCozy from './preview_card_cozy';
 import { LAYOUT } from './section_body';
+import Typography from '@mui/material/Typography';
 
 
 /**
@@ -87,7 +88,15 @@ export default function PostResults({ pageID, posts, style }) {
                 });
         }
 
-        return <Grid container spacing={2} sx={{ pr: {xs: 1, sm: 1, md: 2, lg: 4}, pl: {xs: 1, sm: 1, md: 2, lg: 4} }}>
+        if (cards.length === 0) {
+            return <Grid container spacing={2} sx={{ pr: { xs: 1, sm: 1, md: 2, lg: 4 }, pl: { xs: 1, sm: 1, md: 2, lg: 4 } }}>
+                <Grid item>
+                    <Typography variant="body1">So Empty...</Typography>
+                </Grid>
+            </Grid>
+        }
+
+        return <Grid container spacing={2} sx={{ pr: { xs: 1, sm: 1, md: 2, lg: 4 }, pl: { xs: 1, sm: 1, md: 2, lg: 4 } }}>
             {cards}
         </Grid>
     }, [posts, style, pageID])

@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
@@ -9,6 +8,7 @@ import Select from '@mui/material/Select';
 import { LANGUAGES } from './app';
 import MenuItem from '@mui/material/MenuItem';
 import ThemeSwitch from './theme_switch';
+import Grid from '@mui/material/Grid';
 
 /**
  * 
@@ -34,35 +34,47 @@ function Footer({ pageID }) {
         changeLanguage(event.target.value);
     }
 
-    return <Box component='footer' sx={{ bgcolor: 'background.paper', py: 6 }}>
-        <Container>
-            <Typography variant='subtitle2' color='text.secondary' align='center'>
-                This site records visitation. No other information is collected outside of github.
-            </Typography>
-            <Typography variant="body2" color="text.secondary" align="center">
-                {'Copyright © '}
-                <Link color="inherit" href="https://softpotato.github.io/">
-                    Benjamin Lin
-                </Link>{' '}
-                {new Date().getFullYear()}
-                {'.'}
-            </Typography>
-            <ThemeSwitch />
-            {/* <Switch checked={mode === 'light'} onChange={toggleColorMode} inputProps={{ 'aria-label': 'controlled' }} /> */}
-            <InputLabel id={pageID + "-footer-select-label"}>{language["footer-language-label"]}</InputLabel>
-            <Select
-                labelId={pageID + "-footer-select-label"}
-                id={pageID + "-footer-select"}
-                label={language["footer-language-label"]}
-                onChange={handleChange}
-                value={language['language']}
-            >
-                {Object.keys(LANGUAGES).map((key) => {
-                    return <MenuItem key={pageID + "-" + LANGUAGES[key]} value={LANGUAGES[key]}>{LANGUAGES[key]}</MenuItem>;
-                })}
-            </Select>
-        </Container>
-    </Box>
+    return (
+        <Grid container sx={{ bgcolor: 'background.paper', py: 6, display: "flex", flexDirection: "row" }}>
+            <Grid item xs={12} sm={9} md={9} lg={9} >
+                <Container sx={{ flexGrow: "2" }}>
+                    <Typography variant='subtitle2' color='text.secondary' align='center'>
+                        This site records visitation. No other information is collected outside of github.
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" align="center">
+                        {'Copyright © '}
+                        <Link color="inherit" href="https://softpotato.github.io/">
+                            Benjamin Lin
+                        </Link>{' '}
+                        {new Date().getFullYear()}
+                        {'.'}
+                    </Typography>
+                </Container>
+            </Grid>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
+                <Container sx={{ flexShrink: "1" }}>
+                    <ThemeSwitch />
+                    <InputLabel id={pageID + "-footer-select-label"}>{language["footer-language-label"]}</InputLabel>
+                    <Select
+                        labelId={pageID + "-footer-select-label"}
+                        id={pageID + "-footer-select"}
+                        label={language["footer-language-label"]}
+                        onChange={handleChange}
+                        value={language['language']}
+                        size="small"
+                    >
+                        {Object.keys(LANGUAGES).map((key) => {
+                            return <MenuItem key={pageID + "-" + LANGUAGES[key]} value={LANGUAGES[key]}>{LANGUAGES[key]}</MenuItem>;
+                        })}
+                    </Select>
+                </Container>
+            </Grid>
+        </Grid>
+    );
+
+
+    // <Box component='footer' sx={{ bgcolor: 'background.paper', py: 6, display: "flex", flexDirection: "row" }}>
+    // </Box>
 }
 
 export default Footer;

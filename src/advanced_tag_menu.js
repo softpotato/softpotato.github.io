@@ -104,7 +104,7 @@ export default function AdvancedTagMenu({ pageID, tags, toggleTag, inclusionAnd,
         const sections = [];
         for (let i = 0; i < language['tag-group-names'].length; i++) {
             const languageName = language['tag-group-names'][i];
-            sections.push(<Typography key={languageName}>{languageName}</Typography>);
+            sections.push(<Typography variant="h6" key={languageName}>{languageName}</Typography>);
 
             const tagList = tags[i];
             for (let index = 0; index < tagList.length; index++) {
@@ -127,7 +127,7 @@ export default function AdvancedTagMenu({ pageID, tags, toggleTag, inclusionAnd,
             aria-labelledby={tagMenuID + "-modal_title"}
         >
             <Box sx={style}>
-                <Typography key={tagMenuID + "-modal_title"} id={tagMenuID + "-modal_title"} component="h1">
+                <Typography key={tagMenuID + "-modal_title"} id={tagMenuID + "-modal_title"} variant="h4">
                     {language['tag-modal-title']}
                 </Typography>
                 {renderSections}
