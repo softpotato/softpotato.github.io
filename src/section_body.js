@@ -13,6 +13,7 @@ import TableRowsIcon from '@mui/icons-material/TableRows';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 
 /**
@@ -527,7 +528,53 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
     }, [searchBar, ascending, convertedTags, exclusionAnd, inclusionAnd, searchInterface, sortBy]);
 
     return <Paper elevation={8} sx={{ padding: "1rem", mb: "1rem", mt: "1rem" }}>
-        <Box sx={{ display: 'flex', flexDirection: "column", padding: "1rem" }}>
+        <Grid container spacing={1} sx={{ mb: "1rem" }}>
+            <Grid item xs={10} sm={10} md={10} lg={10}>
+                <TextField value={searchBar} onChange={onSearchBarChange} fullWidth size="small" />
+            </Grid>
+            <Grid item xs={2} sm={2} md={2} lg={2}>
+                <AdvancedTagMenu
+                    pageID={sectionID}
+                    modalName={modalName}
+                    sectionNames={sectionNames}
+                    tags={convertedTags}
+                    toggleTag={toggleTag}
+                    inclusionAnd={inclusionAnd}
+                    exclusionAnd={exclusionAnd}
+                    toggleInclusionAnd={toggleInclusionAnd}
+                    toggleExclusionAnd={toggleExclusionAnd}
+                    inclusionAndOrLabel={inclusionAndOrLabel}
+                    exclusionAndOrLabel={exclusionAndOrLabel}
+                    sx={{ flexShrink: 1 }}
+                />
+            </Grid>
+            <Grid item xs={4} sm={4} md={4} lg={4}>
+                <Select size="small" value={selectValues} onChange={onSortTypeChange}>
+                    <MenuItem value={"bm"}>Best Match</MenuItem>
+                    <MenuItem value={"ta"}>Title (a-z)</MenuItem>
+                    <MenuItem value={"td"}>Title (z-a)</MenuItem>
+                    <MenuItem value={"lpa"}>Latest Posts</MenuItem>
+                    <MenuItem value={"opd"}>Oldest Posts</MenuItem>
+                    <MenuItem value={"lua"}>Latest Updates</MenuItem>
+                    <MenuItem value={"oud"}>Oldest Updates</MenuItem>
+                </Select>
+            </Grid>
+            <Grid item xs={0} sm={2} md={4} lg={6} />
+            <Grid item xs={7} sm={6} md={4} lg={2} sx={{ display: "flex", flexDirection: "row-reverse" }}>
+                <ButtonGroup>
+                    <IconButton aria-label="compact" disabled={LAYOUT.COMPRESSED === postLayout} onClick={togglePostLayoutToCompressed}>
+                        <TableRowsIcon />
+                    </IconButton>
+                    <IconButton aria-label="cozy" disabled={LAYOUT.GRID === postLayout} onClick={togglePostLayoutToGrid}>
+                        <ViewModuleIcon />
+                    </IconButton>
+                </ButtonGroup>
+            </Grid>
+            <Grid item xs={12}>
+                <TagScroll pageID={sectionID} inclusionHead={inclusionHead} exclusionHead={exclusionHead} toggleTag={toggleTag} removeTag={removeTag} />
+            </Grid>
+        </Grid>
+        {/* <Box sx={{ display: 'flex', flexDirection: "column", padding: "1rem" }}>
             <Box sx={{ display: 'flex', flexDirection: "row" }}>
                 <TextField value={searchBar} onChange={onSearchBarChange} sx={{ flexGrow: "1" }} />
                 <Select value={selectValues} onChange={onSortTypeChange} sx={{ flexShrink: "1" }}>
@@ -554,20 +601,7 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
                     sx={{ flexShrink: 1 }}
                 />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: "row", pt: "1rem" }}>
-                <Box sx={{ flexGrow: "1" }}>
-                    <TagScroll pageID={sectionID} inclusionHead={inclusionHead} exclusionHead={exclusionHead} toggleTag={toggleTag} removeTag={removeTag} />
-                </Box>
-                <ButtonGroup sx={{ flexShrink: "1" }}>
-                    <IconButton aria-label="compact" disabled={LAYOUT.COMPRESSED === postLayout} onClick={togglePostLayoutToCompressed}>
-                        <TableRowsIcon />
-                    </IconButton>
-                    <IconButton aria-label="cozy" disabled={LAYOUT.GRID === postLayout} onClick={togglePostLayoutToGrid}>
-                        <ViewModuleIcon />
-                    </IconButton>
-                </ButtonGroup>
-            </Box>
-        </Box>
+        </Box> */}
         <PostResults pageID={sectionID} posts={posts} style={postLayout} />
     </Paper>
 }

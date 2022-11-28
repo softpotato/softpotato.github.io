@@ -26,6 +26,9 @@ import manifest from "./extensions/manifest";
 import Container from "@mui/material/Container";
 import TagList from "./tag_list";
 
+import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from "@mui/material/IconButton";
+
 function NavButton({ pageID, componentInfo, index, selectedIndex, onClick }) {
     return (<ListItemButton key={pageID + "nav_panel-" + index} selected={index === selectedIndex} onClick={onClick}>
         <ListItemText primary={componentInfo} />
@@ -383,15 +386,20 @@ export default function EnhancedPost({ post }) {
     }, [post, page, pageID]);
 
     return <Box sx={{ display: "flex" }}>
-        <AppBar position="fixed" sx={{ width: `calc(100% - ${open ? drawerWidth : 0}px)`, ml: `${open ? drawerWidth : 0}` }}>
+        <AppBar position="fixed" sx={{ width: `calc(100% - ${pageWidth !== "xs" ? drawerWidth : 0}px)`, ml: `${open ? drawerWidth : 0}` }}>
             <Toolbar sx={{ display: "flex" }}>
+                {pageWidth === "xs" &&
+                    <IconButton onClick={() => {setOpen(true)}}>
+                        <MenuIcon />
+                    </IconButton>
+                }
                 <Typography variant="h5" component="h1" sx={{ flexGrow: "1" }}>
                     {post["title"]}
                 </Typography>
                 <ThemeSwitch />
             </Toolbar>
         </AppBar>
-        {!open ?
+        {pageWidth === "xs" ?
             <SwipeableDrawer anchor="left" open={open} onOpen={() => { setOpen(true) }} onClose={() => { setOpen(false) }}>
                 <Toolbar>
                     <Button children="< Return" href="#" />
@@ -423,7 +431,7 @@ export default function EnhancedPost({ post }) {
         </Box>
         <Button
             variant="contained"
-            sx={{ position: "fixed", left: `${open ? `calc(2rem + ${drawerWidth}px)` : '2rem'}`, bottom: "1rem" }}
+            sx={{ position: "fixed", left: `${open ? `calc(2rem + ${pageWidth !== "xs" ? drawerWidth : 0}px)` : '2rem'}`, bottom: "1rem" }}
             onClick={() => { setPage(page - 1) }}
             disabled={page <= -1}
         >

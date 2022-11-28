@@ -8,6 +8,8 @@ import Switch from "@mui/material/Switch";
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { SettingContext } from "./app";
+import useWidth from "./custom_hooks/useWidth";
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 /**
  * Contains a mapping of the string state key
@@ -23,14 +25,14 @@ const jsxChips = {
         return <Chip
             label={tag.name}
             key={tagKey}
-            onClick={() => {toggle(tag.row, tag.column)}}
+            onClick={() => { toggle(tag.row, tag.column) }}
         />
     },
     "included": function (tag, tagKey, toggle) {
         return <Chip
             label={tag.name}
             key={tagKey}
-            onClick={() => {toggle(tag.row, tag.column)}}
+            onClick={() => { toggle(tag.row, tag.column) }}
             color="primary"
         />
     },
@@ -38,7 +40,7 @@ const jsxChips = {
         return <Chip
             label={tag.name}
             key={tagKey}
-            onClick={() => {toggle(tag.row, tag.column)}}
+            onClick={() => { toggle(tag.row, tag.column) }}
             variant="outlined"
         />
     }
@@ -92,6 +94,8 @@ const style = {
 export default function AdvancedTagMenu({ pageID, tags, toggleTag, inclusionAnd, exclusionAnd, toggleInclusionAnd, toggleExclusionAnd }) {
     const { language } = useContext(SettingContext);
 
+    const width = useWidth();
+
     const tagMenuID = useMemo(() => { return pageID + "-advanced_tag_menu" }, [pageID]);
 
     const [open, setOpen] = useState(false);
@@ -120,7 +124,10 @@ export default function AdvancedTagMenu({ pageID, tags, toggleTag, inclusionAnd,
 
 
     return <Fragment>
-        <Button onClick={handleOpen}>{language['tag-menu-button']}</Button>
+        <Button onClick={handleOpen} fullWidth>
+            <FilterListIcon />
+            {(width !== "xs") && language['tag-menu-button']}
+        </Button>
         <Modal
             open={open}
             onClose={handleClose}
