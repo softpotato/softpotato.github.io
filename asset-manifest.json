@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.d5a6a1b3.css",
-    "main.js": "/static/js/main.e3f1f0c0.js",
-    "static/js/787.c7a045b0.chunk.js": "/static/js/787.c7a045b0.chunk.js",
+    "main.js": "/static/js/main.9fbfe250.js",
+    "static/js/806.da1240a6.chunk.js": "/static/js/806.da1240a6.chunk.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
     "static/media/KaTeX_Main-Bold.ttf": "/static/media/KaTeX_Main-Bold.8169508bf58f8bd92ad8.ttf",
@@ -46,7 +46,6 @@
     "static/media/KaTeX_Size2-Regular.ttf": "/static/media/KaTeX_Size2-Regular.57f5c1837853986ea1db.ttf",
     "static/media/KaTeX_Fraktur-Bold.woff2": "/static/media/KaTeX_Fraktur-Bold.931d67ea207ab37ee693.woff2",
     "static/media/KaTeX_Fraktur-Regular.woff2": "/static/media/KaTeX_Fraktur-Regular.172d3529b26f8cedef6b.woff2",
-    "static/media/2022-9-20.md": "/static/media/2022-9-20.ee92ad08ee27947898d1.md",
     "static/media/KaTeX_Script-Regular.woff": "/static/media/KaTeX_Script-Regular.073b3402d036714b4370.woff",
     "static/media/KaTeX_Size4-Regular.ttf": "/static/media/KaTeX_Size4-Regular.4ad7c7e8bb8d10a34bb7.ttf",
     "static/media/KaTeX_SansSerif-Regular.woff2": "/static/media/KaTeX_SansSerif-Regular.cd5e231e0cc53b2cb2c0.woff2",
@@ -63,22 +62,15 @@
     "static/media/KaTeX_Size2-Regular.woff2": "/static/media/KaTeX_Size2-Regular.2960900c4f271311eb36.woff2",
     "static/media/KaTeX_Size4-Regular.woff2": "/static/media/KaTeX_Size4-Regular.e418bf257af1052628d8.woff2",
     "static/media/KaTeX_Size3-Regular.woff": "/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
-    "static/media/creating-blog.md": "/static/media/creating-blog.c40ba05469f1852cfe64.md",
-    "static/media/2022-8-19.md": "/static/media/2022-8-19.8e477f4139546f1e1993.md",
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
-    "static/media/2022-8-13.md": "/static/media/2022-8-13.7a5b00a9eb7c38b8b406.md",
-    "static/media/2022-8-15.md": "/static/media/2022-8-15.4c28f47499e567c98142.md",
+    "static/media/11-27-2022.md": "/static/media/11-27-2022.37d786d527da26b8942f.md",
     "index.html": "/index.html",
-    "static/media/cafe-game.md": "/static/media/cafe-game.e069141cab439191d301.md",
-    "static/media/2022-9-21.md": "/static/media/2022-9-21.62e23e0a627dff6ed4f4.md",
-    "static/media/relational-database.md": "/static/media/relational-database.fa9207d716826eb49563.md",
-    "static/media/github-blog.md": "/static/media/github-blog.1fb99cbcfebb7d218b9a.md",
     "main.d5a6a1b3.css.map": "/static/css/main.d5a6a1b3.css.map",
-    "main.e3f1f0c0.js.map": "/static/js/main.e3f1f0c0.js.map",
-    "787.c7a045b0.chunk.js.map": "/static/js/787.c7a045b0.chunk.js.map"
+    "main.9fbfe250.js.map": "/static/js/main.9fbfe250.js.map",
+    "806.da1240a6.chunk.js.map": "/static/js/806.da1240a6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5a6a1b3.css",
-    "static/js/main.e3f1f0c0.js"
+    "static/js/main.9fbfe250.js"
   ]
 }
