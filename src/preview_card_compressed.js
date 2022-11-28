@@ -1,6 +1,5 @@
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -72,22 +71,17 @@ export default function PreviewCardCompressed({ pageID, data }) {
 
     return <Grid item xs={12} sm={12} md={12} lg={12}>
         <Card sx={{ display: 'flex', flexDirection: "row" }}>
-            <CardActionArea href={"#/posts/" + data["perma-link"]} sx={{ display: 'flex', flexDirection: "row" }}>
-                {data["splash_image"] !== "" &&
-                    <CardMedia
-                        component="img"
-                        image={data["splash_image"]}
-                        alt={data["splash_image_alt"]}
-                        height={150}
-                        width={150}
-                    />
-                }
+            <CardActionArea href={"#/posts/" + data["perma-link"]} sx={{ flexGrow: 1 }}>
                 <CardContent>
                     <Typography variant="h6">{data["title"]}</Typography>
-                    <Typography variant="subtitle2">{data["description"]}</Typography>
+                    {data["description"].length < 100 ?
+                        <Typography variant="subtitle2">{data["description"]}</Typography>
+                        :
+                        <Typography variant="subtitle2">{data["description"].substring(0,100) + "..."}</Typography>
+                    }
                 </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions sx={{ flexShrink: "1" }}>
                 <TagList pageID={previewCardPageID} tags={tags} hyperlinks={hyperlinks} renderLimit={5} />
             </CardActions>
         </Card>

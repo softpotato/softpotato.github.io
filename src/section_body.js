@@ -12,7 +12,6 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 
@@ -180,6 +179,9 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
 
     // UI Control State
     const [postLayout, setPostLayout] = useState(LAYOUT.GRID);
+
+    // Loading effect
+    const [loading, setLoading] = useState(true);
 
     // Callback function passed down
     /**
@@ -516,19 +518,28 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
     }, [enforcedTags]);
     // enforcedTags, ascending, convertedTags, exclusionAnd, inclusionAnd, searchInterface, sortBy, inclusionHead, searchBar, tags
 
+    /**
+     * This is a wrapper to make it so that the new posts will override the loading animation
+     * @param {Object} newPosts 
+     */
+    const setPostsLoadingWrapper = (newPosts) => {
+        setPosts(newPosts);
+        setLoading(false);
+    }
 
     // Search Bar Change
     useEffect(() => {
+        setLoading(true);
         const delayDebounceFn = setTimeout(() => {
             const query = new SearchInput(searchBar, sortBy, ascending, convertTagsToSearch(convertedTags, TAGSTATES.INCLUDED), inclusionAnd, convertTagsToSearch(convertedTags, TAGSTATES.EXCLUDED), exclusionAnd);
-            searchInterface.searchPosts(query, setPosts);
+            searchInterface.searchPosts(query, setPostsLoadingWrapper);
         }, 1000);
 
         return () => clearTimeout(delayDebounceFn);
     }, [searchBar, ascending, convertedTags, exclusionAnd, inclusionAnd, searchInterface, sortBy]);
 
     return <Paper elevation={8} sx={{ padding: "1rem", mb: "1rem", mt: "1rem" }}>
-        <Grid container spacing={1} sx={{ mb: "1rem" }}>
+        <Grid container spacing={1} sx={{ mb: "1rem", pr: { xs: 1, sm: 1, md: 2, lg: 8 }, pl: { xs: 1, sm: 1, md: 2, lg: 8 } }}>
             <Grid item xs={10} sm={10} md={10} lg={10}>
                 <TextField value={searchBar} onChange={onSearchBarChange} fullWidth size="small" />
             </Grid>
@@ -574,34 +585,6 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
                 <TagScroll pageID={sectionID} inclusionHead={inclusionHead} exclusionHead={exclusionHead} toggleTag={toggleTag} removeTag={removeTag} />
             </Grid>
         </Grid>
-        {/* <Box sx={{ display: 'flex', flexDirection: "column", padding: "1rem" }}>
-            <Box sx={{ display: 'flex', flexDirection: "row" }}>
-                <TextField value={searchBar} onChange={onSearchBarChange} sx={{ flexGrow: "1" }} />
-                <Select value={selectValues} onChange={onSortTypeChange} sx={{ flexShrink: "1" }}>
-                    <MenuItem value={"bm"}>Best Match</MenuItem>
-                    <MenuItem value={"ta"}>Title (a-z)</MenuItem>
-                    <MenuItem value={"td"}>Title (z-a)</MenuItem>
-                    <MenuItem value={"lpa"}>Latest Posts</MenuItem>
-                    <MenuItem value={"opd"}>Oldest Posts</MenuItem>
-                    <MenuItem value={"lua"}>Latest Updates</MenuItem>
-                    <MenuItem value={"oud"}>Oldest Updates</MenuItem>
-                </Select>
-                <AdvancedTagMenu
-                    pageID={sectionID}
-                    modalName={modalName}
-                    sectionNames={sectionNames}
-                    tags={convertedTags}
-                    toggleTag={toggleTag}
-                    inclusionAnd={inclusionAnd}
-                    exclusionAnd={exclusionAnd}
-                    toggleInclusionAnd={toggleInclusionAnd}
-                    toggleExclusionAnd={toggleExclusionAnd}
-                    inclusionAndOrLabel={inclusionAndOrLabel}
-                    exclusionAndOrLabel={exclusionAndOrLabel}
-                    sx={{ flexShrink: 1 }}
-                />
-            </Box>
-        </Box> */}
-        <PostResults pageID={sectionID} posts={posts} style={postLayout} />
+        <PostResults pageID={sectionID} posts={posts} style={postLayout} loading={loading} />
     </Paper>
 }

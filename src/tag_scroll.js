@@ -58,10 +58,11 @@ export default function TagScroll({ pageID, inclusionHead, exclusionHead, toggle
             const row = tempHead.row;
             const column = tempHead.column;
             output.push(<Chip
+                sx={{ ml: "5px", mr: "5px" }}
                 label={tagName}
                 key={tagScrollId + "-" + tagName}
-                onClick={() => {toggleTag(row, column)}}
-                onDelete={() => {removeTag(row, column)}}
+                onClick={() => { toggleTag(row, column) }}
+                onDelete={() => { removeTag(row, column) }}
                 color="primary"
             />);
             tempHead = tempHead.next;
@@ -77,10 +78,11 @@ export default function TagScroll({ pageID, inclusionHead, exclusionHead, toggle
             const row = tempHead.row;
             const column = tempHead.column;
             output.push(<Chip
+                sx={{ ml: "5px", mr: "5px" }}
                 label={tagName}
                 key={tagScrollId + "-" + tagName}
-                onClick={() => {toggleTag(row, column)}}
-                onDelete={() => {removeTag(row, column)}}
+                onClick={() => { toggleTag(row, column) }}
+                onDelete={() => { removeTag(row, column) }}
                 variant="outlined"
             />);
             tempHead = tempHead.next;

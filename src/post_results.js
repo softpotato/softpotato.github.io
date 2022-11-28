@@ -4,6 +4,8 @@ import PreviewCardCompressed from './preview_card_compressed';
 import PreviewCardCozy from './preview_card_cozy';
 import { LAYOUT } from './section_body';
 import Typography from '@mui/material/Typography';
+import Skeleton from '@mui/material/Skeleton';
+import Box from '@mui/material/Box';
 
 
 /**
@@ -56,7 +58,7 @@ import Typography from '@mui/material/Typography';
  *  I'm not sure what I was thinking when I had searchHashCode passed in. The
  *  posts field should update like normal
  */
-export default function PostResults({ pageID, posts, style }) {
+export default function PostResults({ pageID, posts, style, loading }) {
 
     /**
      * This function converts the given posts and style into
@@ -73,33 +75,119 @@ export default function PostResults({ pageID, posts, style }) {
         let cards = [];
         switch (style) {
             case LAYOUT.GRID:
-                cards = posts.map((jsonData) => {
-                    return <PreviewCardCozy pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
-                });
+
+                if (loading) {
+
+                    for (let i = 0; i < 8; i++) {
+                        cards.push(
+                            <Grid item xs={12} sm={6} md={4} lg={3} key={`${pageID}-skeleton_loading-cozy-${i}`}>
+                                <Typography variant="h6">
+                                    <Skeleton />
+                                </Typography>
+                                <Typography variant="subtitle2">
+                                    <Skeleton />
+                                </Typography>
+                                <Typography variant="subtitle2" sx={{ mb: "1rem" }}>
+                                    <Skeleton />
+                                </Typography>
+                                <Box sx={{ display: "flex", flexDirection: "row" }}>
+                                    <Skeleton key={`${pageID}-skeleton_loading-cozy-${i}-1`} variant="circular" width={80} height={30} />
+                                    <Skeleton key={`${pageID}-skeleton_loading-cozy-${i}-2`} variant="circular" width={80} height={30} />
+                                    <Skeleton key={`${pageID}-skeleton_loading-cozy-${i}-3`} variant="circular" width={80} height={30} />
+                                </Box>
+                            </Grid>
+                        );
+                    }
+
+                } else {
+                    cards = posts.map((jsonData) => {
+                        return <PreviewCardCozy pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
+                    });
+                }
                 break;
+
             case LAYOUT.COMPRESSED:
-                cards = posts.map((jsonData) => {
-                    return <PreviewCardCompressed pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
-                });
+                if (loading) {
+                    for (let i = 0; i < 8; i++) {
+                        cards.push(
+                            <Grid
+                                item
+                                xs={12}
+                                sm={12}
+                                md={12}
+                                lg={12}
+                                key={`${pageID}-skeleton_loading-compressed-${i}`}
+                            >
+                                <Grid container>
+                                    <Grid item xs={6}>
+                                        <Typography variant="h6">
+                                            <Skeleton />
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <Skeleton />
+                                        </Typography>
+                                        <Typography variant="subtitle2" sx={{ mb: "1rem" }}>
+                                            <Skeleton />
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={6} sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                                        <Skeleton key={`${pageID}-skeleton_loading-compact-${i}-1`} variant="circular" width={80} height={30} sx={{ ml: "1px", mr: "1px" }} />
+                                        <Skeleton key={`${pageID}-skeleton_loading-compact-${i}-2`} variant="circular" width={80} height={30} sx={{ ml: "1px", mr: "1px" }} />
+                                        <Skeleton key={`${pageID}-skeleton_loading-compact-${i}-3`} variant="circular" width={80} height={30} sx={{ ml: "1px", mr: "1px" }} />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        );
+                    }
+                } else {
+                    cards = posts.map((jsonData) => {
+                        return <PreviewCardCompressed pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
+                    });
+                }
                 break;
+
             default:
-                cards = posts.map((jsonData) => {
-                    return <PreviewCardCozy pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
-                });
+                if (loading) {
+                    for (let i = 0; i < 8; i++) {
+                        cards.push(
+                            <Grid item xs={12} sm={6} md={4} lg={3} key={`${pageID}-skeleton_loading-cozy-${i}`}>
+                                <Typography variant="h6">
+                                    <Skeleton />
+                                </Typography>
+                                <Typography variant="subtitle2">
+                                    <Skeleton />
+                                </Typography>
+                                <Typography variant="subtitle2" sx={{ mb: "1rem" }}>
+                                    <Skeleton />
+                                </Typography>
+                                <Box sx={{ display: "flex", flexDirection: "row" }}>
+                                    <Skeleton key={`${pageID}-skeleton_loading-cozy-${i}-1`} variant="circular" width={80} height={30} />
+                                    <Skeleton key={`${pageID}-skeleton_loading-cozy-${i}-2`} variant="circular" width={80} height={30} />
+                                    <Skeleton key={`${pageID}-skeleton_loading-cozy-${i}-3`} variant="circular" width={80} height={30} />
+                                </Box>
+                            </Grid>
+                        );
+                    }
+
+                } else {
+                    cards = posts.map((jsonData) => {
+                        return <PreviewCardCozy pageID={postResultPageID} key={pageID + "-preview-" + jsonData["perma-link"]} data={jsonData} />
+                    });
+                }
         }
 
-        if (cards.length === 0) {
-            return <Grid container spacing={2} sx={{ pr: { xs: 1, sm: 1, md: 2, lg: 4 }, pl: { xs: 1, sm: 1, md: 2, lg: 4 } }}>
-                <Grid item>
+        if (cards.length === 0 && !loading) {
+            return <Grid container spacing={2} sx={{ pr: { xs: 1, sm: 1, md: 2, lg: 8 }, pl: { xs: 1, sm: 1, md: 2, lg: 8 } }}>
+                <Grid item xs={12}>
                     <Typography variant="body1">So Empty...</Typography>
                 </Grid>
             </Grid>
         }
 
-        return <Grid container spacing={2} sx={{ pr: { xs: 1, sm: 1, md: 2, lg: 4 }, pl: { xs: 1, sm: 1, md: 2, lg: 4 } }}>
+        return <Grid container spacing={2} sx={{ pr: { xs: 1, sm: 1, md: 2, lg: 8 }, pl: { xs: 1, sm: 1, md: 2, lg: 8 } }}>
             {cards}
         </Grid>
-    }, [posts, style, pageID])
+    }, [posts, style, pageID, loading])
 
     return <Fragment>
         {postDisplay}

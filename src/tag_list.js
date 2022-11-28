@@ -1,5 +1,6 @@
 import Chip from "@mui/material/Chip";
-import { Fragment, useMemo } from "react";
+import Box from '@mui/material/Box';
+import { useMemo } from "react";
 
 /**
  * This class is responsible for rendering
@@ -12,7 +13,7 @@ import { Fragment, useMemo } from "react";
  * @param {string[]} hyperlinks - a list of hyperlinks for the tag to render
  * @param {number} renderLimit - A max limit of tags it can render.
  */
-export default function TagList({pageID, tags, hyperlinks, renderLimit}) {
+export default function TagList({ pageID, tags, hyperlinks, renderLimit }) {
 
     /**
      * This function returns an array of chips for
@@ -30,12 +31,23 @@ export default function TagList({pageID, tags, hyperlinks, renderLimit}) {
     const renderTagElements = useMemo(() => {
         const chips = [];
         for (let i = 0; i < Math.min(tags.length, renderLimit); i++) {
-            chips.push(<Chip key={pageID + "-chip-" +tags[i]} label={tags[i]} component="a" href={hyperlinks.length > 0 ? hyperlinks[i].replace(" ", "_") : null} clickable={hyperlinks.length > 0} />);
+            chips.push(
+                <Chip
+                    key={pageID + "-chip-" + tags[i]}
+                    label={tags[i]}
+                    component="a"
+                    href={hyperlinks.length > 0 ? hyperlinks[i].replace(" ", "_") : null}
+                    clickable={hyperlinks.length > 0}
+                    sx={{ ml: "1px", mr: "1px", mb: "1px" }}
+                />
+            );
         }
         return chips;
     }, [tags, hyperlinks, renderLimit, pageID]);
 
-    return (<Fragment>
-        {renderTagElements}
-    </Fragment>);
+    return (
+        <Box sx={{ flexWrap: "wrap" }}>
+            {renderTagElements}
+        </Box>
+    );
 }
