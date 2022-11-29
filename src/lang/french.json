@@ -87,5 +87,8 @@
         }
     ],
     "tag-menu-button": "Filtrer par",
-    "theme": "foncé/clair"
+    "theme": "foncé/clair",
+    "apply": "appliquer",
+    "search-bar-text": "Saisissez le texte à rechercher",
+    "search-bar-text-filled": "Barre de recherche"
 }

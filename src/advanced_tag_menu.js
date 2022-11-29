@@ -153,6 +153,9 @@ export default function AdvancedTagMenu({ pageID, tags, toggleTag, inclusionAnd,
                         />}
                         label={language['tag-modal-exclusion-and-or-label']} />
                 </FormGroup>
+                <Button variant="contained" onClick={handleClose} fullWidth>
+                    {language["apply"]}
+                </Button>
             </Box>
         </Modal>
     </Fragment>

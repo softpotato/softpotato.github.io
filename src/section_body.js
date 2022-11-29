@@ -4,7 +4,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TagScroll from './tag_scroll';
 import PostResults from './post_results';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Tag, { TAGSTATES } from './ui_state/tag';
 import SearchInput from './state/search_input';
 import AdvancedTagMenu from './advanced_tag_menu';
@@ -13,6 +13,7 @@ import TableRowsIcon from '@mui/icons-material/TableRows';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
+import { SettingContext } from './app';
 
 
 /**
@@ -138,6 +139,7 @@ export const LAYOUT = {
  */
 export default function SectionBody({ pageID, tags, searchInterface, enforcedTags, modalName, sectionNames, inclusionAndOrLabel, exclusionAndOrLabel }) {
     const sectionID = pageID + "-section_body";
+    const { language } = useContext(SettingContext);
 
     /**
      * This function converts back the Tag[][] into a string[][].
@@ -539,9 +541,9 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
     }, [searchBar, ascending, convertedTags, exclusionAnd, inclusionAnd, searchInterface, sortBy]);
 
     return <Paper elevation={8} sx={{ padding: "1rem", mb: "1rem", mt: "1rem" }}>
-        <Grid container spacing={1} sx={{ mb: "1rem", pr: { xs: 1, sm: 1, md: 2, lg: 8 }, pl: { xs: 1, sm: 1, md: 2, lg: 8 } }}>
+        <Grid container spacing={1} sx={{ mb: "2rem", pr: { xs: 1, sm: 1, md: 2, lg: 8 }, pl: { xs: 1, sm: 1, md: 2, lg: 8 } }}>
             <Grid item xs={10} sm={10} md={10} lg={10}>
-                <TextField value={searchBar} onChange={onSearchBarChange} fullWidth size="small" />
+                <TextField value={searchBar} label={searchBar === "" ? language["search-bar-text"] : language["search-bar-text-filled"]} onChange={onSearchBarChange} fullWidth size="small" />
             </Grid>
             <Grid item xs={2} sm={2} md={2} lg={2}>
                 <AdvancedTagMenu

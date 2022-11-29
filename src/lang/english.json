@@ -87,5 +87,8 @@
         }
     ],
     "tag-menu-button": "Filter By",
-    "theme": "Dark/Light"
+    "theme": "Dark/Light",
+    "apply": "Apply",
+    "search-bar-text": "OwO nothing searched up yet...",
+    "search-bar-text-filled": "OWO! You're searching by text!"
 }

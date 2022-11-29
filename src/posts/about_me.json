@@ -1,8 +1,8 @@
 {
     "created": "11-27-2022",
     "updated": "11-27-2022",
-    "title": "About Me",
-    "description": "General information about me. It guess it covers some broad details into who, what, and why I am and what I'm doing.",
+    "title": "More About Me",
+    "description": "I guess this contains other personal information about me if you're trying to impersonate me. I'm generally a very boring person, so I'm not sure why someone would want to impersonate me other than for fraud.",
     "type": "other",
     "tags": [
         "general"
@@ -40,7 +40,7 @@
         },
         {
             "type": "h2",
-            "content": "Programming Languages",
+            "content": "Programming Language Familiarity",
             "sections": [
                 {
                     "type": "body1",
