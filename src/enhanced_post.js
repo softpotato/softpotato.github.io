@@ -201,195 +201,195 @@ export default function EnhancedPost({ post }) {
 
     }, [post, page, pageID]);
 
-    // const currentPage = useMemo(() => {
+    const currentPage = useMemo(() => {
 
-    //     /**
-    //      * This function is primarily responsible
-    //      * for mapping the JSON objects of the post
-    //      * to JSX. 
-    //      * 
-    //      * @param {Object} content 
-    //      * @param {string} parentID - used to generate unique key values
-    //      * @param {number} index - used to generate unique key numbers
-    //      */
-    //     const renderContents = (content, parentID, index) => {
-    //         const currID = `${parentID}-${content["type"]}_${index}`;
+        /**
+         * This function is primarily responsible
+         * for mapping the JSON objects of the post
+         * to JSX. 
+         * 
+         * @param {Object} content 
+         * @param {string} parentID - used to generate unique key values
+         * @param {number} index - used to generate unique key numbers
+         */
+        const renderContents = (content, parentID, index) => {
+            const currID = `${parentID}-${content["type"]}_${index}`;
 
-    //         switch (content["type"]) {
-    //             case "h1":
-    //             case "h2":
-    //             case "h3":
-    //             case "h4":
-    //             case "h5":
-    //             case "h6":
-    //             case "body1":
-    //             case "body2":
-    //             case "subtitle1":
-    //             case "subtitle2":
-    //             case "caption":
+            switch (content["type"]) {
+                case "h1":
+                case "h2":
+                case "h3":
+                case "h4":
+                case "h5":
+                case "h6":
+                case "body1":
+                case "body2":
+                case "subtitle1":
+                case "subtitle2":
+                case "caption":
 
-    //                 return <Text
-    //                     key={currID}
-    //                     type={content["type"]}
-    //                     text={content["content"]}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />
+                    return <Text
+                        key={currID}
+                        type={content["type"]}
+                        text={content["content"]}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />
 
-    //             case "markdown":
+                case "markdown":
 
-    //                 return <Markdown
-    //                     key={currID}
-    //                     text={content["content"]}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />
+                    return <Markdown
+                        key={currID}
+                        text={content["content"]}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />
 
-    //             case "dropdown":
+                case "dropdown":
 
-    //                 return <DropDown
-    //                     key={currID}
-    //                     currID={currID}
-    //                     text={content["content"]}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />
+                    return <DropDown
+                        key={currID}
+                        currID={currID}
+                        text={content["content"]}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />
 
-    //             case "code":
+                case "code":
 
-    //                 return <Code
-    //                     key={currID}
-    //                     codeInfo={content}
-    //                     componentID={currID}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />
+                    return <Code
+                        key={currID}
+                        codeInfo={content}
+                        componentID={currID}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />
 
-    //             case "static-image":
+                case "static-image":
 
-    //                 return <Image
-    //                     key={currID}
-    //                     src={content["content"]}
-    //                     alt={content["alt-text"]}
-    //                     caption={content["caption"]}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />
+                    return <Image
+                        key={currID}
+                        src={content["content"]}
+                        alt={content["alt-text"]}
+                        caption={content["caption"]}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />
 
-    //             case "3d":
+                case "3d":
 
-    //                 // TODO: Make 3d assets work
-    //                 return null;
+                    // TODO: Make 3d assets work
+                    return null;
 
-    //             case "notice":
+                case "notice":
 
-    //                 return <Notice
-    //                     key={currID}
-    //                     text={content["content"]}
-    //                     severity={content["severity"]}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />
+                    return <Notice
+                        key={currID}
+                        text={content["content"]}
+                        severity={content["severity"]}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />
 
-    //             case "progress-bar":
+                case "progress-bar":
 
-    //                 return <ProgressBar
-    //                     key={currID}
-    //                     value={content["value"]}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />
+                    return <ProgressBar
+                        key={currID}
+                        value={content["value"]}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />
 
-    //             case "tool":
+                case "tool":
 
-    //                 return manifest(content["type"], content["data"]);
+                    return manifest(content["type"], content["data"]);
 
-    //             default:
+                default:
 
-    //                 return <Space
-    //                     key={currID}
-    //                     children={
-    //                         "sections" in content && content["sections"].length > 0 ?
-    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-    //                             :
-    //                             null
-    //                     }
-    //                 />;
-    //         }
-    //     }
+                    return <Space
+                        key={currID}
+                        children={
+                            "sections" in content && content["sections"].length > 0 ?
+                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                                :
+                                null
+                        }
+                    />;
+            }
+        }
 
-    //     // If it is home page
-    //     if (page === -1) {
-    //         const dateCreated = new Date();
-    //         const dateUpdated = new Date();
-    //         dateCreated.setTime(Date.parse(post.created));
-    //         dateUpdated.setTime(Date.parse(post.updated));
+        // If it is home page
+        if (page === -1) {
+            const dateCreated = new Date();
+            const dateUpdated = new Date();
+            dateCreated.setTime(Date.parse(post.created));
+            dateUpdated.setTime(Date.parse(post.updated));
 
-    //         // https://stackoverflow.com/questions/14638018/current-time-formatting-with-javascript
-    //         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+            // https://stackoverflow.com/questions/14638018/current-time-formatting-with-javascript
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
 
-    //         // Note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth
+            // Note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth
 
-    //         return (
-    //             <Container>
-    //                 <Typography variant="h2">
-    //                     {post["title"]}
-    //                 </Typography>
-    //                 <Typography variant="subtitle1">
-    //                     {`Created: ${dateCreated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
-    //                 </Typography>
-    //                 <Typography variant="subtitle1" mb="1rem">
-    //                     {`Updated: ${dateUpdated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
-    //                 </Typography>
-    //                 <Typography variant="body1" mb="5rem">
-    //                     {post["description"]}
-    //                 </Typography>
-    //                 <TagList
-    //                     pageID={pageID}
-    //                     tags={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language]}
-    //                     hyperlinks={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language].map(
-    //                         (tag) => {
-    //                             return `#/tags/${tag}`;
-    //                         }
-    //                     )}
-    //                     renderLimit={1000}
-    //                 />
-    //             </Container>
-    //         )
-    //     }
+            return (
+                <Container>
+                    <Typography variant="h2">
+                        {post["title"]}
+                    </Typography>
+                    <Typography variant="subtitle1">
+                        {`Created: ${dateCreated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
+                    </Typography>
+                    <Typography variant="subtitle1" mb="1rem">
+                        {`Updated: ${dateUpdated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
+                    </Typography>
+                    <Typography variant="body1" mb="5rem">
+                        {post["description"]}
+                    </Typography>
+                    <TagList
+                        pageID={pageID}
+                        tags={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language]}
+                        hyperlinks={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language].map(
+                            (tag) => {
+                                return `#/tags/${tag}`;
+                            }
+                        )}
+                        renderLimit={1000}
+                    />
+                </Container>
+            )
+        }
 
-    //     // if it is not home page, so normal case
-    //     return renderContents(post["pages"][page], `${pageID}-main-content-${page}`, page);
+        // if it is not home page, so normal case
+        return renderContents(post["pages"][page], `${pageID}-main-content-${page}`, page);
 
-    // }, [post, page, pageID]);
+    }, [post, page, pageID]);
 
     /**
      * This is similar to currentPage, but a slight difference. All rendered components is wrapped
@@ -644,14 +644,14 @@ export default function EnhancedPost({ post }) {
             </Drawer>}
         <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
             <Toolbar />
-            {/* <Paper sx={{
+            {pageWidth === "xs" && <Paper sx={{
                 ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                 mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                 pl: "2rem", pr: "2rem", pt: "1rem", pb: "1rem"
             }} elevation={8}>
                 {currentPage}
-            </Paper> */}
-            {transitionPageContent}
+            </Paper>}
+            {pageWidth !== "xs" && transitionPageContent}
         </Box>
         <Button
             variant="contained"
