@@ -14,5 +14,8 @@
 }
 
 .ReactMarkDown code {
-    border: 1px solid white;
+    border: 1px solid #868B8E;
+    border-radius: 5px;
+    background-color: #868B8E;
+    padding: 1vh;
 }

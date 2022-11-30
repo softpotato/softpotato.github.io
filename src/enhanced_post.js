@@ -29,6 +29,8 @@ import TagList from "./tag_list";
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from "@mui/material/IconButton";
 
+import Slide from "@mui/material/Slide";
+
 function NavButton({ pageID, componentInfo, index, selectedIndex, onClick }) {
     return (<ListItemButton key={pageID + "nav_panel-" + index} selected={index === selectedIndex} onClick={onClick}>
         <ListItemText primary={componentInfo} />
@@ -161,6 +163,7 @@ export default function EnhancedPost({ post }) {
     const pageWidth = useWidth();
 
     const [page, setPage] = useState(-1); // the page # the user is on
+    const [prevPage, setPrevPage] = useState(-1); // the previous page the user was on used for transitions
     const [open, setOpen] = useState(pageWidth !== "xs"); // If the navigation bar is open or
 
     useEffect(() => {
@@ -185,28 +188,218 @@ export default function EnhancedPost({ post }) {
                 componentInfo={post["title"]}
                 index={-1}
                 selectedIndex={page}
-                onClick={() => { setPage(-1) }} />
+                onClick={() => { 
+                    setPrevPage(page);
+                    setPage(-1);
+                }} />
         )
 
         for (let i = 0; i < post["pages"].length; i++) {
-            navBarContents.push(<NavButton key={`${pageID}-nav_button-${i}`} pageID={pageID} componentInfo={post["pages"][i]["content"]} index={i} selectedIndex={page} onClick={() => { setPage(i) }} />);
+            navBarContents.push(<NavButton key={`${pageID}-nav_button-${i}`} pageID={pageID} componentInfo={post["pages"][i]["content"]} index={i} selectedIndex={page} onClick={() => { setPrevPage(page); setPage(i); }} />);
         }
         return navBarContents;
 
     }, [post, page, pageID]);
 
-    const currentPage = useMemo(() => {
+    // const currentPage = useMemo(() => {
 
-        /**
-         * This function is primarily responsible
-         * for mapping the JSON objects of the post
-         * to JSX. 
-         * 
-         * @param {Object} content 
-         * @param {string} parentID - used to generate unique key values
-         * @param {number} index - used to generate unique key numbers
-         */
-        const renderContents = (content, parentID, index) => {
+    //     /**
+    //      * This function is primarily responsible
+    //      * for mapping the JSON objects of the post
+    //      * to JSX. 
+    //      * 
+    //      * @param {Object} content 
+    //      * @param {string} parentID - used to generate unique key values
+    //      * @param {number} index - used to generate unique key numbers
+    //      */
+    //     const renderContents = (content, parentID, index) => {
+    //         const currID = `${parentID}-${content["type"]}_${index}`;
+
+    //         switch (content["type"]) {
+    //             case "h1":
+    //             case "h2":
+    //             case "h3":
+    //             case "h4":
+    //             case "h5":
+    //             case "h6":
+    //             case "body1":
+    //             case "body2":
+    //             case "subtitle1":
+    //             case "subtitle2":
+    //             case "caption":
+
+    //                 return <Text
+    //                     key={currID}
+    //                     type={content["type"]}
+    //                     text={content["content"]}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />
+
+    //             case "markdown":
+
+    //                 return <Markdown
+    //                     key={currID}
+    //                     text={content["content"]}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />
+
+    //             case "dropdown":
+
+    //                 return <DropDown
+    //                     key={currID}
+    //                     currID={currID}
+    //                     text={content["content"]}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />
+
+    //             case "code":
+
+    //                 return <Code
+    //                     key={currID}
+    //                     codeInfo={content}
+    //                     componentID={currID}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />
+
+    //             case "static-image":
+
+    //                 return <Image
+    //                     key={currID}
+    //                     src={content["content"]}
+    //                     alt={content["alt-text"]}
+    //                     caption={content["caption"]}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />
+
+    //             case "3d":
+
+    //                 // TODO: Make 3d assets work
+    //                 return null;
+
+    //             case "notice":
+
+    //                 return <Notice
+    //                     key={currID}
+    //                     text={content["content"]}
+    //                     severity={content["severity"]}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />
+
+    //             case "progress-bar":
+
+    //                 return <ProgressBar
+    //                     key={currID}
+    //                     value={content["value"]}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />
+
+    //             case "tool":
+
+    //                 return manifest(content["type"], content["data"]);
+
+    //             default:
+
+    //                 return <Space
+    //                     key={currID}
+    //                     children={
+    //                         "sections" in content && content["sections"].length > 0 ?
+    //                             content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+    //                             :
+    //                             null
+    //                     }
+    //                 />;
+    //         }
+    //     }
+
+    //     // If it is home page
+    //     if (page === -1) {
+    //         const dateCreated = new Date();
+    //         const dateUpdated = new Date();
+    //         dateCreated.setTime(Date.parse(post.created));
+    //         dateUpdated.setTime(Date.parse(post.updated));
+
+    //         // https://stackoverflow.com/questions/14638018/current-time-formatting-with-javascript
+    //         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+
+    //         // Note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth
+
+    //         return (
+    //             <Container>
+    //                 <Typography variant="h2">
+    //                     {post["title"]}
+    //                 </Typography>
+    //                 <Typography variant="subtitle1">
+    //                     {`Created: ${dateCreated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
+    //                 </Typography>
+    //                 <Typography variant="subtitle1" mb="1rem">
+    //                     {`Updated: ${dateUpdated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
+    //                 </Typography>
+    //                 <Typography variant="body1" mb="5rem">
+    //                     {post["description"]}
+    //                 </Typography>
+    //                 <TagList
+    //                     pageID={pageID}
+    //                     tags={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language]}
+    //                     hyperlinks={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language].map(
+    //                         (tag) => {
+    //                             return `#/tags/${tag}`;
+    //                         }
+    //                     )}
+    //                     renderLimit={1000}
+    //                 />
+    //             </Container>
+    //         )
+    //     }
+
+    //     // if it is not home page, so normal case
+    //     return renderContents(post["pages"][page], `${pageID}-main-content-${page}`, page);
+
+    // }, [post, page, pageID]);
+
+    /**
+     * This is similar to currentPage, but a slight difference. All rendered components is wrapped
+     * in a transition component called Slide and that component manages the mounting and unmounting
+     * of the page.
+     */
+    const transitionPageContent = useMemo(() => {
+        const output = [];
+
+        function renderContents(content, parentID, index) {
             const currID = `${parentID}-${content["type"]}_${index}`;
 
             switch (content["type"]) {
@@ -340,56 +533,86 @@ export default function EnhancedPost({ post }) {
             }
         }
 
-        // If it is home page
-        if (page === -1) {
-            const dateCreated = new Date();
-            const dateUpdated = new Date();
-            dateCreated.setTime(Date.parse(post.created));
-            dateUpdated.setTime(Date.parse(post.updated));
+        // Part 1 - Render the Header component
+        const dateCreated = new Date();
+        const dateUpdated = new Date();
+        dateCreated.setTime(Date.parse(post.created));
+        dateUpdated.setTime(Date.parse(post.updated));
 
-            // https://stackoverflow.com/questions/14638018/current-time-formatting-with-javascript
-            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+        // https://stackoverflow.com/questions/14638018/current-time-formatting-with-javascript
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
 
-            // Note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth
+        // Note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth
 
-            return (
-                <Container>
-                    <Typography variant="h2">
-                        {post["title"]}
-                    </Typography>
-                    <Typography variant="subtitle1">
-                        {`Created: ${dateCreated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
-                    </Typography>
-                    <Typography variant="subtitle1" mb="1rem">
-                        {`Updated: ${dateUpdated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
-                    </Typography>
-                    <Typography variant="body1" mb="5rem">
-                        {post["description"]}
-                    </Typography>
-                    <TagList
-                        pageID={pageID}
-                        tags={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language]}
-                        hyperlinks={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language].map(
-                            (tag) => {
-                                return `#/tags/${tag}`;
-                            }
-                        )}
-                        renderLimit={1000}
-                    />
-                </Container>
-            )
+        output.push(
+            <Slide key={`${pageID}-main-content--1`} direction="down" in={page === -1} mountOnEnter unmountOnExit >
+                <Paper sx={{
+                    ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
+                    mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
+                    pl: "2rem", pr: "2rem", pt: "1rem", pb: "1rem"
+                }} elevation={8}>
+                    <Container>
+                        <Typography variant="h2">
+                            {post["title"]}
+                        </Typography>
+                        <Typography variant="subtitle1">
+                            {`Created: ${dateCreated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
+                        </Typography>
+                        <Typography variant="subtitle1" mb="1rem">
+                            {`Updated: ${dateUpdated.toLocaleDateString(navigator.language || navigator.userLanguage)}`}
+                        </Typography>
+                        <Typography variant="body1" mb="5rem">
+                            {post["description"]}
+                        </Typography>
+                        <TagList
+                            pageID={pageID}
+                            tags={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language]}
+                            hyperlinks={[post.type, ...post.tags, post.status, ...post["programming_languages"], post.language].map(
+                                (tag) => {
+                                    return `#/tags/${tag}`;
+                                }
+                            )}
+                            renderLimit={1000}
+                        />
+                    </Container>
+                </Paper>
+            </Slide>
+        );
+
+        const direction = page - prevPage > 0; // true if going down, false if going up
+        // note:
+        //      if true
+        //          prevPage animation must be up
+        //          page animation must be down
+        //      if false
+        //          prevPage be down
+        //          page is up
+
+        // Part 2 - Render remaining content
+        for (let i = 0; i < post["pages"].length; i++) {
+            const animationDirection = page !== i ? !direction : direction;
+            output.push(
+                <Slide key={`${pageID}-main-content-${i}`} direction={animationDirection ? "up" : "down"} in={page === i} mountOnEnter unmountOnExit >
+                    <Paper sx={{
+                        ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
+                        mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
+                        pl: "2rem", pr: "2rem", pt: "1rem", pb: "1rem"
+                    }} elevation={8}>
+                        {renderContents(post["pages"][i], `${pageID}-main-content-${i}`, 0)}
+                    </Paper>
+                </Slide>
+            );
         }
 
-        // if it is not home page, so normal case
-        return renderContents(post["pages"][page], `${pageID}-main-content-${page}`, page);
+        return output;
 
-    }, [post, page, pageID]);
+    }, [post, page, pageID, prevPage])
 
     return <Box sx={{ display: "flex" }}>
         <AppBar position="fixed" sx={{ width: `calc(100% - ${pageWidth !== "xs" ? drawerWidth : 0}px)`, ml: `${open ? drawerWidth : 0}` }}>
             <Toolbar sx={{ display: "flex" }}>
                 {pageWidth === "xs" &&
-                    <IconButton onClick={() => {setOpen(true)}}>
+                    <IconButton onClick={() => { setOpen(true) }}>
                         <MenuIcon />
                     </IconButton>
                 }
@@ -421,18 +644,19 @@ export default function EnhancedPost({ post }) {
             </Drawer>}
         <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
             <Toolbar />
-            <Paper sx={{
+            {/* <Paper sx={{
                 ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                 mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                 pl: "2rem", pr: "2rem", pt: "1rem", pb: "1rem"
             }} elevation={8}>
                 {currentPage}
-            </Paper>
+            </Paper> */}
+            {transitionPageContent}
         </Box>
         <Button
             variant="contained"
             sx={{ position: "fixed", left: `${open ? `calc(2rem + ${pageWidth !== "xs" ? drawerWidth : 0}px)` : '2rem'}`, bottom: "1rem" }}
-            onClick={() => { setPage(page - 1) }}
+            onClick={() => { setPrevPage(page); setPage(page - 1); }}
             disabled={page <= -1}
         >
             Previous
@@ -440,7 +664,7 @@ export default function EnhancedPost({ post }) {
         <Button
             variant="contained"
             sx={{ position: "fixed", right: "2rem", bottom: "1rem" }}
-            onClick={() => { setPage(page + 1) }}
+            onClick={() => { setPrevPage(page); setPage(page + 1); }}
             disabled={page >= post["pages"].length - 1}
         >
             Next
