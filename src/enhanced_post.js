@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import useWidth from "./custom_hooks/useWidth";
 
 import AppBar from "@mui/material/AppBar";
@@ -31,6 +31,12 @@ import IconButton from "@mui/material/IconButton";
 
 import Slide from "@mui/material/Slide";
 
+// For Page Up Fab
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Fab from '@mui/material/Fab';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import Fade from '@mui/material/Fade';
+
 function NavButton({ pageID, componentInfo, index, selectedIndex, onClick }) {
     return (<ListItemButton key={pageID + "nav_panel-" + index} selected={index === selectedIndex} onClick={onClick}>
         <ListItemText primary={componentInfo} />
@@ -38,6 +44,149 @@ function NavButton({ pageID, componentInfo, index, selectedIndex, onClick }) {
 }
 
 const drawerWidth = 240;
+
+/**
+        * This function is primarily responsible
+        * for mapping the JSON objects of the post
+        * to JSX. 
+        * 
+        * @param {Object} content 
+        * @param {string} parentID - used to generate unique key values
+        * @param {number} index - used to generate unique key numbers
+        */
+const renderContents = (content, parentID, index) => {
+    const currID = `${parentID}-${content["type"]}_${index}`;
+
+    switch (content["type"]) {
+        case "h1":
+        case "h2":
+        case "h3":
+        case "h4":
+        case "h5":
+        case "h6":
+        case "body1":
+        case "body2":
+        case "subtitle1":
+        case "subtitle2":
+        case "caption":
+
+            return <Text
+                key={currID}
+                type={content["type"]}
+                text={content["content"]}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />
+
+        case "markdown":
+
+            return <Markdown
+                key={currID}
+                text={content["content"]}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />
+
+        case "dropdown":
+
+            return <DropDown
+                key={currID}
+                currID={currID}
+                text={content["content"]}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />
+
+        case "code":
+
+            return <Code
+                key={currID}
+                codeInfo={content}
+                componentID={currID}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />
+
+        case "static-image":
+
+            return <Image
+                key={currID}
+                src={content["content"]}
+                alt={content["alt-text"]}
+                caption={content["caption"]}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />
+
+        case "3d":
+
+            // TODO: Make 3d assets work
+            return null;
+
+        case "notice":
+
+            return <Notice
+                key={currID}
+                text={content["content"]}
+                severity={content["severity"]}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />
+
+        case "progress-bar":
+
+            return <ProgressBar
+                key={currID}
+                value={content["value"]}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />
+
+        case "tool":
+
+            return manifest(content["type"], content["data"]);
+
+        default:
+
+            return <Space
+                key={currID}
+                children={
+                    "sections" in content && content["sections"].length > 0 ?
+                        content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
+                        :
+                        null
+                }
+            />;
+    }
+};
 
 /**
  * PURPOSE
@@ -166,6 +315,15 @@ export default function EnhancedPost({ post }) {
     const [prevPage, setPrevPage] = useState(-1); // the previous page the user was on used for transitions
     const [open, setOpen] = useState(pageWidth !== "xs"); // If the navigation bar is open or
 
+    const trigger = useScrollTrigger();
+
+    const pageTop = useRef(null);
+
+    // Citation: https://mui.com/material-ui/react-app-bar/#back-to-top
+    const returnToTopOfPage = () => {
+        pageTop.current.scrollIntoView({block: 'center', behavior: "smooth"});
+    };
+
     useEffect(() => {
         setOpen(pageWidth !== "xs");
     }, [pageWidth]);
@@ -188,163 +346,34 @@ export default function EnhancedPost({ post }) {
                 componentInfo={post["title"]}
                 index={-1}
                 selectedIndex={page}
-                onClick={() => { 
+                onClick={(e) => {
+                    pageTop.current.scrollIntoView({block: 'center', behavior: "smooth"});
                     setPrevPage(page);
                     setPage(-1);
                 }} />
         )
 
         for (let i = 0; i < post["pages"].length; i++) {
-            navBarContents.push(<NavButton key={`${pageID}-nav_button-${i}`} pageID={pageID} componentInfo={post["pages"][i]["content"]} index={i} selectedIndex={page} onClick={() => { setPrevPage(page); setPage(i); }} />);
+            navBarContents.push(
+                <NavButton
+                    key={`${pageID}-nav_button-${i}`}
+                    pageID={pageID}
+                    componentInfo={post["pages"][i]["content"]}
+                    index={i}
+                    selectedIndex={page}
+                    onClick={(e) => {
+                        pageTop.current.scrollIntoView({block: 'center', behavior: "smooth"});
+                        setPrevPage(page);
+                        setPage(i);
+                    }}
+                />
+            );
         }
         return navBarContents;
 
-    }, [post, page, pageID]);
+    }, [post, page, pageID, pageTop]);
 
     const currentPage = useMemo(() => {
-
-        /**
-         * This function is primarily responsible
-         * for mapping the JSON objects of the post
-         * to JSX. 
-         * 
-         * @param {Object} content 
-         * @param {string} parentID - used to generate unique key values
-         * @param {number} index - used to generate unique key numbers
-         */
-        const renderContents = (content, parentID, index) => {
-            const currID = `${parentID}-${content["type"]}_${index}`;
-
-            switch (content["type"]) {
-                case "h1":
-                case "h2":
-                case "h3":
-                case "h4":
-                case "h5":
-                case "h6":
-                case "body1":
-                case "body2":
-                case "subtitle1":
-                case "subtitle2":
-                case "caption":
-
-                    return <Text
-                        key={currID}
-                        type={content["type"]}
-                        text={content["content"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "markdown":
-
-                    return <Markdown
-                        key={currID}
-                        text={content["content"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "dropdown":
-
-                    return <DropDown
-                        key={currID}
-                        currID={currID}
-                        text={content["content"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "code":
-
-                    return <Code
-                        key={currID}
-                        codeInfo={content}
-                        componentID={currID}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "static-image":
-
-                    return <Image
-                        key={currID}
-                        src={content["content"]}
-                        alt={content["alt-text"]}
-                        caption={content["caption"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "3d":
-
-                    // TODO: Make 3d assets work
-                    return null;
-
-                case "notice":
-
-                    return <Notice
-                        key={currID}
-                        text={content["content"]}
-                        severity={content["severity"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "progress-bar":
-
-                    return <ProgressBar
-                        key={currID}
-                        value={content["value"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "tool":
-
-                    return manifest(content["type"], content["data"]);
-
-                default:
-
-                    return <Space
-                        key={currID}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />;
-            }
-        }
 
         // If it is home page
         if (page === -1) {
@@ -398,140 +427,6 @@ export default function EnhancedPost({ post }) {
      */
     const transitionPageContent = useMemo(() => {
         const output = [];
-
-        function renderContents(content, parentID, index) {
-            const currID = `${parentID}-${content["type"]}_${index}`;
-
-            switch (content["type"]) {
-                case "h1":
-                case "h2":
-                case "h3":
-                case "h4":
-                case "h5":
-                case "h6":
-                case "body1":
-                case "body2":
-                case "subtitle1":
-                case "subtitle2":
-                case "caption":
-
-                    return <Text
-                        key={currID}
-                        type={content["type"]}
-                        text={content["content"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "markdown":
-
-                    return <Markdown
-                        key={currID}
-                        text={content["content"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "dropdown":
-
-                    return <DropDown
-                        key={currID}
-                        currID={currID}
-                        text={content["content"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "code":
-
-                    return <Code
-                        key={currID}
-                        codeInfo={content}
-                        componentID={currID}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "static-image":
-
-                    return <Image
-                        key={currID}
-                        src={content["content"]}
-                        alt={content["alt-text"]}
-                        caption={content["caption"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "3d":
-
-                    // TODO: Make 3d assets work
-                    return null;
-
-                case "notice":
-
-                    return <Notice
-                        key={currID}
-                        text={content["content"]}
-                        severity={content["severity"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "progress-bar":
-
-                    return <ProgressBar
-                        key={currID}
-                        value={content["value"]}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />
-
-                case "tool":
-
-                    return manifest(content["type"], content["data"]);
-
-                default:
-
-                    return <Space
-                        key={currID}
-                        children={
-                            "sections" in content && content["sections"].length > 0 ?
-                                content["sections"].map((obj, index) => { return renderContents(obj, currID, ++index); })
-                                :
-                                null
-                        }
-                    />;
-            }
-        }
 
         // Part 1 - Render the Header component
         const dateCreated = new Date();
@@ -606,7 +501,7 @@ export default function EnhancedPost({ post }) {
 
         return output;
 
-    }, [post, page, pageID, prevPage])
+    }, [post, page, pageID, prevPage]);
 
     return <Box sx={{ display: "flex" }}>
         <AppBar position="fixed" sx={{ width: `calc(100% - ${pageWidth !== "xs" ? drawerWidth : 0}px)`, ml: `${open ? drawerWidth : 0}` }}>
@@ -643,7 +538,7 @@ export default function EnhancedPost({ post }) {
                 </List>
             </Drawer>}
         <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
-            <Toolbar />
+            <Toolbar id={`${pageID}-appbar`} ref={pageTop} />
             {pageWidth === "xs" && <Paper sx={{
                 ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                 mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
@@ -656,7 +551,7 @@ export default function EnhancedPost({ post }) {
         <Button
             variant="contained"
             sx={{ position: "fixed", left: `${open ? `calc(2rem + ${pageWidth !== "xs" ? drawerWidth : 0}px)` : '2rem'}`, bottom: "1rem" }}
-            onClick={() => { setPrevPage(page); setPage(page - 1); }}
+            onClick={(e) => { returnToTopOfPage(); setPrevPage(page); setPage(page - 1); }}
             disabled={page <= -1}
         >
             Previous
@@ -664,10 +559,17 @@ export default function EnhancedPost({ post }) {
         <Button
             variant="contained"
             sx={{ position: "fixed", right: "2rem", bottom: "1rem" }}
-            onClick={() => { setPrevPage(page); setPage(page + 1); }}
+            onClick={(e) => { returnToTopOfPage(); setPrevPage(page); setPage(page + 1); }}
             disabled={page >= post["pages"].length - 1}
         >
             Next
         </Button>
+        <Fade in={trigger}>
+            <Box onClick={returnToTopOfPage} role="presentation" sx={{ position: "fixed", right: "8rem", bottom: "1rem" }}>
+                <Fab size="small" onClick={returnToTopOfPage}>
+                    <KeyboardArrowUpIcon />
+                </Fab>
+            </Box>
+        </Fade>
     </Box>
 }
