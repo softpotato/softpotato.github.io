@@ -83,7 +83,10 @@ export default function App() {
             for (let i = 0; i < posts.length; i++) {
                 parsedPosts.push(posts[i].split('|'));
             }
-            setPrimaryPosts(parsedPosts);
+            // If you don't want the name of the file to determine order, then 
+            // you can use this store function to do it based off the largest
+            // ID value of the post.
+            setPrimaryPosts(parsedPosts.sort((a, b) => b[0] - a[0]));
         }
         fetchPostFiles();
 

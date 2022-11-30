@@ -318,6 +318,7 @@ export default function EnhancedPost({ post }) {
     const trigger = useScrollTrigger();
 
     const pageTop = useRef(null);
+    const cardAreaRef = useRef(null);
 
     // Citation: https://mui.com/material-ui/react-app-bar/#back-to-top
     const returnToTopOfPage = () => {
@@ -439,8 +440,18 @@ export default function EnhancedPost({ post }) {
 
         // Note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth
 
+
+        const direction = page - prevPage > 0; // true if going down, false if going up
+        // note:
+        //      if true
+        //          prevPage animation must be up
+        //          page animation must be down
+        //      if false
+        //          prevPage be down
+        //          page is up
+
         output.push(
-            <Slide key={`${pageID}-main-content--1`} direction="down" in={page === -1} mountOnEnter unmountOnExit >
+            <Slide key={`${pageID}-main-content--1`} direction="down" in={page === -1} mountOnEnter unmountOnExit timeout={500} container={cardAreaRef.current} style={{ transitionDelay: page === -1 ? '500ms' : '0ms' }}>
                 <Paper sx={{
                     ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                     mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
@@ -474,20 +485,20 @@ export default function EnhancedPost({ post }) {
             </Slide>
         );
 
-        const direction = page - prevPage > 0; // true if going down, false if going up
-        // note:
-        //      if true
-        //          prevPage animation must be up
-        //          page animation must be down
-        //      if false
-        //          prevPage be down
-        //          page is up
-
         // Part 2 - Render remaining content
         for (let i = 0; i < post["pages"].length; i++) {
-            const animationDirection = page !== i ? !direction : direction;
+
+            // Lol, old code worked, just external animation issues. Oh well, I think if statements are simpler anyways.
+            let animationDirection = true; // brain fart, can't handle this normally. Just gonna use if statements
+            if (i === page) {
+                animationDirection = direction;
+            } else if (i === prevPage) {
+                animationDirection = !direction;
+            }
+
+
             output.push(
-                <Slide key={`${pageID}-main-content-${i}`} direction={animationDirection ? "up" : "down"} in={page === i} mountOnEnter unmountOnExit >
+                <Slide key={`${pageID}-main-content-${i}`} direction={animationDirection ? "up" : "down"} in={page === i} mountOnEnter unmountOnExit timeout={500} container={cardAreaRef.current} style={{ transitionDelay: page === i ? '500ms' : '0ms' }}>
                     <Paper sx={{
                         ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                         mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
@@ -501,7 +512,7 @@ export default function EnhancedPost({ post }) {
 
         return output;
 
-    }, [post, page, pageID, prevPage]);
+    }, [post, page, pageID, prevPage, cardAreaRef]);
 
     return <Box sx={{ display: "flex" }}>
         <AppBar position="fixed" sx={{ width: `calc(100% - ${pageWidth !== "xs" ? drawerWidth : 0}px)`, ml: `${open ? drawerWidth : 0}` }}>
@@ -537,7 +548,7 @@ export default function EnhancedPost({ post }) {
                     {pageNavigation}
                 </List>
             </Drawer>}
-        <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }} ref={cardAreaRef}>
             <Toolbar id={`${pageID}-appbar`} ref={pageTop} />
             {pageWidth === "xs" && <Paper sx={{
                 ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
