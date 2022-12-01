@@ -9,8 +9,8 @@ export default function Notice({ severity, text, children }) {
                 severity={severity}
             >
                 {text}
+                {children}
             </Alert>
-            {children}
         </Fragment>
     );
 }

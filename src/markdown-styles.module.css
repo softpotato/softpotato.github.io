@@ -17,5 +17,13 @@
     border: 1px solid #868B8E;
     border-radius: 5px;
     background-color: #868B8E;
-    padding: 1vh;
+    padding: 0.1vh;
+}
+
+.ReactMarkDown a:link {
+    color: orange; 
+}
+
+.ReactMarkDown a:visited { 
+    color: #ADD8E6;
 }
