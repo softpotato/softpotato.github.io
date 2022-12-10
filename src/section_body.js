@@ -405,8 +405,8 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
         "td": ["title", false],
         "lpa": ["datePosted", true],
         "opd": ["datePosted", false],
-        "lua": ["lastEdited", true],
-        "oud": ["lastEdited", false]
+        "lua": ["lastEdited", false],
+        "oud": ["lastEdited", true]
     };
 
     const onSortTypeChange = (event) => {

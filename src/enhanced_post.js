@@ -80,6 +80,7 @@ const renderContents = (content, parentID, index) => {
                         :
                         null
                 }
+                sx={{ mb: "0px"}}
             />
 
         case "markdown":
@@ -173,6 +174,17 @@ const renderContents = (content, parentID, index) => {
         case "tool":
 
             return manifest(content["type"], content["data"]);
+
+        case "pdf":
+
+            return <iframe 
+                key={currID}
+                title={content["title"]}
+                src={content["content"]}
+                width="100%"
+                height="500em"
+                allowFullScreen={true}
+            />
 
         default:
 
@@ -550,14 +562,14 @@ export default function EnhancedPost({ post }) {
             </Drawer>}
         <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }} ref={cardAreaRef}>
             <Toolbar id={`${pageID}-appbar`} ref={pageTop} />
-            {pageWidth === "xs" && <Paper sx={{
+            {pageWidth !== "sm" && <Paper sx={{
                 ml: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                 mr: { xs: '1rem', sm: '1rem', md: '1rem', lg: '5rem', xl: '5rem' },
                 pl: "2rem", pr: "2rem", pt: "1rem", pb: "1rem"
             }} elevation={8}>
                 {currentPage}
             </Paper>}
-            {pageWidth !== "xs" && transitionPageContent}
+            {pageWidth === "sm" && transitionPageContent}
         </Box>
         <Button
             variant="contained"
