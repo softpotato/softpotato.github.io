@@ -1,0 +1,193 @@
+{
+    "created": "03-13-2023",
+    "updated": "03-13-2023",
+    "title": "Unsorted Projects",
+    "description": "A simple list and summary of my all my final projects in college. This is as accurate as I can remember 1-4 years ago, so it might be inaccurate as well. There are also a few more scuffed projects in here as well.",
+    "type": "project",
+    "tags": [
+        "college project",
+        "collection"
+    ],
+    "status": "completed",
+    "programming_languages": [
+        "Python",
+        "C#",
+        "MATLAB",
+        "Assembly",
+        "C++"
+    ],
+    "language": "english",
+    "splash_image": "./unsorted_projects_img.png",
+    "splash_image_alt": "nothing",
+    "perma-link": "e",
+    "pages": [
+        {
+            "type": "h4",
+            "content": "Table of Contents",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_WARNING: This table of contents is merely a list. None of the hyperlinks, due to the webpage structure._"
+                },
+                {
+                    "type": "markdown",
+                    "content": " - 3D Graphics Boss Battle\n - 68k Assembly Disassembler\n - C++ Store Inventory System\n - Audio Stenography\n - Simple PHP Bonds Full Stack\n - Audio Classification\n - Spatial Analysis of People Before and After COVID data collection and preprocessing"
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "3D Graphics Boss Battle",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_Period: Fall 2020_"
+                },
+                {
+                    "type": "markdown",
+                    "content": "_Course: CSS 451 - 3D Graphics_"
+                },
+                {
+                    "type": "body1",
+                    "content": "This was a collaborative project with 2 other people. Our goal was to create a 3D robot boss battle in Unity with multiplayer FPS mechanics within 2 weeks. It failed due to poor planning, unknown features, and poor Git repo management on my part."
+                },
+                {
+                    "type": "body1",
+                    "content": "I was responsible for the socket programming network components. My other 2 group members were responsible for character movement and boss attacks."
+                },
+                {
+                    "type": "body1",
+                    "content": "Our plan was to complete the player mechanics within the first week and then work on the network component the second week. I spent the first week focusing on learning socket programming, while my other 2 group members tried to make the FPS game. However, it was the 2nd week into the project, when we faced a road block of limited communication, since we were online, and poor schedule matches. Some of the code from one of my group members was missing, and it wasn't resolved until a few days before the submission. Trying to do what I could, since I spent a week learning and adding socket programming. I tried to merge my code into the project, but it was all in vain. I should have helped working on polishing the game we had at the time, and I wish I was more resolute and flexible in what is possible."
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "68K Disassembler",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_Period: Fall 2020_"
+                },
+                {
+                    "type": "markdown",
+                    "content": "_Course: CSS 422 - Hardware and Computer Organization_"
+                },
+                {
+                    "type": "body1",
+                    "content": "I worked on this project with 4 other people. I was responsible for decoding opcodes and making sure my code ran in sequence with everyone else's code. Overall, the project went smoothly, with a few hiccups at the end."
+                },
+                {
+                    "type": "body1",
+                    "content": "The biggest challenge in the project was that we had to coordinate who was using what address spaces (I forget the name, but the storage slots near the CPU) whenever we handed off our code to another person. I was the last person to get handed things off and was responsible for generate output prints dependent on the previous person's code. This involved coordinating some operations to output properly at times."
+                },
+                {
+                    "type": "body1",
+                    "content": "I had a minor hiccup at the end, since I wasn't able to fully debug the application since we had no pagination of the parsing of a massive computer code file we were given. I wasn't until my other group members caught my issues, and I fixed them on the spot. Turns out, my sequence of commands was slightly out of order, causing improper prints to be made."
+                }
+            ]
+        }, 
+        {
+            "type": "h4",
+            "content": "C++ Store Inventory System",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_Period: Spring 2019_"
+                },
+                {
+                    "type": "markdown",
+                    "content": "_Course: CSS 343 - Data Structures, Algorithms, and Discrete Mathematics 2_"
+                },
+                {
+                    "type": "body1",
+                    "content": "This was a really dumb and simple project of implementing a store inventory system using C++. I used a tree to manage a hash map to manage a list of users and an array for inventory. I created my own jump table to handle different inventory queries. The whole application was designed using object oriented programming."
+                },
+                {
+                    "type": "body1",
+                    "content": "My biggest regret was overthinking certain components, writing unnecessary functions for encapsulation, and not fully testing my code before submission."
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "Audio Stenography",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_Period: Winter or Spring 2019?_"
+                },
+                {
+                    "type": "markdown",
+                    "content": "_Course: CSS 457 - Signal Computing_"
+                },
+                {
+                    "type": "body1",
+                    "content": "Yeah, no I didn't really do anything here. I tried to implement DSSS on a simple audio sequence to help with our showcase of different stenography methods, but eventually my group member took over and did it instead."
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "PHP Bond Full Stack",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_Period: Winter 2020_"
+                },
+                {
+                    "type": "markdown",
+                    "content": "_Course: CSS 475 - Database Systems_"
+                },
+                {
+                    "type": "body1",
+                    "content": "This was a project with 3 other people. We all shared equal responsibility for everything. We developed the database using MySQL, used PHP like an API for the webpage, and used simple HTML/JavaScript for the front end."
+                },
+                {
+                    "type": "body1",
+                    "content": "There was very little in terms of difficulty for the project. Aside from a slight disagreement with the DDL and eventual reconciliation when implementing the front end, the project went with very little hiccups."
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "Audio Classification",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_Period: Fall 2020_"
+                },
+                {
+                    "type": "markdown",
+                    "content": "_Course: CSS 486 - Machine Intelligence_"
+                },
+                {
+                    "type": "body1",
+                    "content": "This was an individual project. The goal was simple. I tried to classify urban audio sounds with machine learning. It went poorly, since I never filtered out the silence between audio noises, which resulted in a misclassification of silence as it's own audio group."
+                },
+                {
+                    "type": "body1",
+                    "content": "I primarily focused on different methods for pre-processing audio files, but I don't think I really learned that much from this."
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "Spatial Analysis of People Before and After COVID",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "_Period: Summer 2020_"
+                },
+                {
+                    "type": "markdown",
+                    "content": "_Course: CSS 499 - Undergraduate Research_"
+                },
+                {
+                    "type": "body1",
+                    "content": "Gotta be honest, I'm not sure how ethical this was. I was primarily responsible for collecting data on social media websites using a Python REST caller, since some websites exposed their API callers to generate the webpage data. I could easily collect and store public travel data into .csv files. I guess I optimized it slightly to use threading and queues, so I could make multiple calls and distribute the work."
+                }
+            ]
+        }
+    ]
+}

@@ -29,8 +29,11 @@ export default function BodyBanner() {
                 <Typography variant='h5'>
                     {language['primary-banner-box1-title']}
                 </Typography>
-                <Typography variant='body2'>
+                <Typography variant='body2' sx={{ pb:"1rem" }}>
                     {language['primary-banner-box1-content']}
+                </Typography>
+                <Typography variant='body2'>
+                    {language['primary-banner-box1-content2'] ? language['primary-banner-box1-content2'] : ""}
                 </Typography>
             </Paper>
         </Grid>

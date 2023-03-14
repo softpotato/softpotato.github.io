@@ -1,0 +1,78 @@
+{
+    "created": "03-13-2023",
+    "updated": "03-13-2023",
+    "title": "Capstone - Object Role Modelling Web Tool",
+    "description": "A web tool for creating Object Role Model diagrams in JavaScript and React. I worked on the front end of the webpage creating the user interface, interactive tools, and other elements. I worked on this project with my professor, Mr. Kochanski.",
+    "type": "project",
+    "tags": [
+        "capstone",
+        "college project",
+        "react",
+        "material ui",
+        "konva"
+    ],
+    "status": "completed",
+    "programming_languages": ["JavaScript"],
+    "language": "english",
+    "splash_image": "./capstone.png",
+    "splash_image_alt": "nothing",
+    "perma-link": "c",
+    "pages": [
+        {
+            "type": "h4",
+            "content": "About",
+            "sections": [
+                {
+                    "type": "markdown",
+                    "content": "This project was about creating an [Object Relational Model(ORM)](https://en.wikipedia.org/wiki/Object-role_modeling) Diagram tool (Note: This is not the same as [Object Relational Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), a method to abstract relational databases)."
+                },
+                {
+                    "type": "body1",
+                    "content": "Object Relational Mapping is a way of modelling relational databases to identify pitfalls with designs and help visualize some degrees of normalization. It was used in my class to help transition into Entity Relational Diagrams, which is a more detailed and specific variation."
+                },
+                {
+                    "type": "static-image",
+                    "content": "capstone.png",
+                    "caption": "example picture of an ORM diagram made with the tool.",
+                    "alt-text": "This diagram shows a figure of the Object Role Model diagram made with the graphical web tool."
+                },
+                {
+                    "type": "body1",
+                    "content": " "
+                },
+                {
+                    "type": "body1",
+                    "content": "I worked solely on the front end of the application using JavaScript. There was no backend to the project, and I didn't work on any throughout the duration of the project. This is due to the complex state behavior of the diagram tool. An ORM diagram is akin to a language, which can be easily modified. Trying to tie strict rules, like an API, to make consistent state changes would have meant a totally refactored backend every week. I refactored the state multiple times throughout the project, and each iteration was never enough to fully handle all planned features."
+                },
+                {
+                    "type": "markdown",
+                    "content": "I used the following libraries alongside this project.\n - React - A popular front end library for handling DOM rendering in a JavaScript way.\n - Material UI - A UI library that made buttons have a consistent theme.\n - Konva - A canvas wrapper library.\n - Flux - A design pattern that required some library code."
+                },
+                {
+                    "type": "body1",
+                    "content": "I used the Flux pattern to handle the state of my project. It was a naive choice, and I wish I decided to use Flux or go without it. At the time though, I mostly decided to use it because I thought it would be a great way to handle state changes throughout the application. A unidirectional flow of data would make code easier to read and prop drilling might be easier as well."
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "Time Line",
+            "sections": [
+                {
+                    "type": "body1",
+                    "content": "This page covers the general sequence of events throughout my project."
+                }
+            ]
+        },
+        {
+            "type": "h4",
+            "content": "Challenges",
+            "sections": [
+                {
+                    "type": "body1",
+                    "content": ""
+                }
+            ]
+        }
+    ]
+}

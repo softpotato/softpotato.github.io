@@ -3,7 +3,7 @@
     "updated": "10-13-2022",
     "title": "Example Elements",
     "description": "This is a sample page showcasing all the unique items that can be rendered. This is mostly for my personal reference.",
-    "type": "tutorial",
+    "type": "other",
     "tags": [
         "test",
         "general"
@@ -13,7 +13,7 @@
     "language": "english",
     "splash_image": "",
     "splash_image_alt": "nothing",
-    "perma-link": "d",
+    "perma-link": "b",
     "pages": [
         {
             "type": "h1",

@@ -7,6 +7,8 @@ export default function Image({ src, alt, caption, children }) {
         <Fragment>
             <img
                 className="static-image"
+                width={"50%"}
+                height={"50%"}
                 src={src}
                 alt={alt}
             />

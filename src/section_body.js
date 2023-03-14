@@ -535,7 +535,7 @@ export default function SectionBody({ pageID, tags, searchInterface, enforcedTag
         const delayDebounceFn = setTimeout(() => {
             const query = new SearchInput(searchBar, sortBy, ascending, convertTagsToSearch(convertedTags, TAGSTATES.INCLUDED), inclusionAnd, convertTagsToSearch(convertedTags, TAGSTATES.EXCLUDED), exclusionAnd);
             searchInterface.searchPosts(query, setPostsLoadingWrapper);
-        }, 1000);
+        }, 100);
 
         return () => clearTimeout(delayDebounceFn);
     }, [searchBar, ascending, convertedTags, exclusionAnd, inclusionAnd, searchInterface, sortBy]);
