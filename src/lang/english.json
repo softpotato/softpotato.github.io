@@ -1,7 +1,7 @@
 {
     "language": "english",
     "footer-language-label": "Language",
-    "primary-title": "Ben's Dev Log",
+    "primary-title": "Benjamin Lin Portfolio",
     "navigation": [
         {
             "title": "Home",
@@ -29,8 +29,8 @@
         }
     ],
     "primary-banner-box1-title": "About Me",
-    "primary-banner-box1-content": "Hi! I am Benjamin Lin. A software developer by day, internet gremlin by night.",
-    "primary-banner-box1-content2": "I'm primarily a software developer. I dabble in a variety of stuff, but I primarily work on full stack development. This blog post is solely going to consist of stuff I'm dabbling in, because I can't post information on my work.",
+    "primary-banner-box1-content": "Hi, I'm Benjamin Lin, a web developer, sleep enjoyer, and enemy of nature.",
+    "primary-banner-box1-content2": "This portolio is run on duct tape and prayers. It will contain relevant projects that I'm working on at some point, but I don't like posting as frequently. It also will not contain stuff relevant to my work, for obvious security reasons.",
     "primary-banner-box2-title": "Contact Information",
     "primary-banner-box2-content": [
         {
