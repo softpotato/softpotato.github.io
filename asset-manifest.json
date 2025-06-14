@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.2743c8b8.css",
-    "main.js": "/static/js/main.62fd0555.js",
-    "static/js/806.da1240a6.chunk.js": "/static/js/806.da1240a6.chunk.js",
+    "main.css": "/static/css/main.b196d889.css",
+    "main.js": "/static/js/main.1a2795e0.js",
+    "static/js/225.42c4335d.chunk.js": "/static/js/225.42c4335d.chunk.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
     "static/media/KaTeX_Main-Bold.ttf": "/static/media/KaTeX_Main-Bold.8169508bf58f8bd92ad8.ttf",
@@ -49,36 +49,28 @@
     "static/media/KaTeX_Script-Regular.woff": "/static/media/KaTeX_Script-Regular.073b3402d036714b4370.woff",
     "static/media/KaTeX_Size4-Regular.ttf": "/static/media/KaTeX_Size4-Regular.4ad7c7e8bb8d10a34bb7.ttf",
     "static/media/KaTeX_SansSerif-Regular.woff2": "/static/media/KaTeX_SansSerif-Regular.cd5e231e0cc53b2cb2c0.woff2",
-    "static/media/2022-12-09.md": "/static/media/2022-12-09.02f381bb0544727bfce5.md",
     "static/media/KaTeX_Script-Regular.woff2": "/static/media/KaTeX_Script-Regular.c81d1b2a4b75d3eded60.woff2",
     "static/media/KaTeX_Caligraphic-Bold.woff": "/static/media/KaTeX_Caligraphic-Bold.d757c535a2e5902f1325.woff",
     "static/media/KaTeX_Caligraphic-Regular.woff": "/static/media/KaTeX_Caligraphic-Regular.db074fa22cf224af93d7.woff",
-    "static/media/2023-03-10.md": "/static/media/2023-03-10.49f2340307ee6c8c10f6.md",
     "static/media/KaTeX_Size3-Regular.ttf": "/static/media/KaTeX_Size3-Regular.8d6b6822586eea3d3b20.ttf",
     "static/media/KaTeX_Caligraphic-Bold.woff2": "/static/media/KaTeX_Caligraphic-Bold.a1abf90dfd72792a577a.woff2",
     "static/media/KaTeX_Caligraphic-Regular.woff2": "/static/media/KaTeX_Caligraphic-Regular.d6484fce1ef428d5bd94.woff2",
     "static/media/KaTeX_Size1-Regular.woff": "/static/media/KaTeX_Size1-Regular.0108e89c9003e8c14ea3.woff",
     "static/media/KaTeX_Size2-Regular.woff": "/static/media/KaTeX_Size2-Regular.3a99e70aee4076660d38.woff",
     "static/media/KaTeX_Size4-Regular.woff": "/static/media/KaTeX_Size4-Regular.aeffd8025cba3647f1a6.woff",
-    "static/media/2023-01-10.md": "/static/media/2023-01-10.2ec3757aa6ad06330372.md",
     "static/media/KaTeX_Size1-Regular.woff2": "/static/media/KaTeX_Size1-Regular.6eec866c69313624be60.woff2",
-    "static/media/2022-11-30.md": "/static/media/2022-11-30.f94dd891f2871e0828f9.md",
     "static/media/KaTeX_Size2-Regular.woff2": "/static/media/KaTeX_Size2-Regular.2960900c4f271311eb36.woff2",
-    "static/media/2023-03-02.md": "/static/media/2023-03-02.f40250a556fa6e47080d.md",
     "static/media/KaTeX_Size4-Regular.woff2": "/static/media/KaTeX_Size4-Regular.e418bf257af1052628d8.woff2",
-    "static/media/2023-01-9.md": "/static/media/2023-01-9.9432c35b1c4e2223d61c.md",
     "static/media/KaTeX_Size3-Regular.woff": "/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
-    "static/media/2024-07-10.md": "/static/media/2024-07-10.8873cd632edf5680802b.md",
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
-    "static/media/2023-03-12.md": "/static/media/2023-03-12.dd09f0bbab12561db355.md",
-    "static/media/2022-11-27.md": "/static/media/2022-11-27.37d786d527da26b8942f.md",
+    "static/media/2025-06-13.md": "/static/media/2025-06-13.38e4c98ae3a56af0c0f5.md",
     "index.html": "/index.html",
-    "main.2743c8b8.css.map": "/static/css/main.2743c8b8.css.map",
-    "main.62fd0555.js.map": "/static/js/main.62fd0555.js.map",
-    "806.da1240a6.chunk.js.map": "/static/js/806.da1240a6.chunk.js.map"
+    "main.b196d889.css.map": "/static/css/main.b196d889.css.map",
+    "main.1a2795e0.js.map": "/static/js/main.1a2795e0.js.map",
+    "225.42c4335d.chunk.js.map": "/static/js/225.42c4335d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2743c8b8.css",
-    "static/js/main.62fd0555.js"
+    "static/css/main.b196d889.css",
+    "static/js/main.1a2795e0.js"
   ]
 }
